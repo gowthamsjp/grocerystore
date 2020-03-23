@@ -1,0 +1,38 @@
+from django.contrib import admin
+from .models import Product, ProductImage
+
+
+# This page to upload the database on admin site
+
+# Custom view of database Product
+class ProductAdmin(admin.ModelAdmin):
+    date_hierarchy = 'timestamp'  # show the time filter on database
+    # create search function on database
+    search_fields = ['title', 'description', 'price']
+    list_display = ['__unicode__', 'title', 'price',
+                    'active', 'updated']  # custom display of database
+    # list_display = [ 'title', 'price', 'active', 'updated']
+    list_editable = ['price',
+                     'active']  # edit the price and active status on database directly. You don't need to click on each
+    # to filter group in same price , same plug, and active or dec
+    list_filter = ['price', 'slug', 'active']
+    readonly_fields = ['updated', 'timestamp']  # show only, cant fix variables
+    # auto update slug ==  title when adding new product
+    prepopulated_fields = {"slug": ("title", "salePrice",)}
+
+    class Meta:
+        model = Product
+
+
+class ImageProductAdmin(admin.ModelAdmin):
+    list_display = ['__unicode__', 'image']
+    list_filter = ['product']
+
+    class Meta:
+        model = ProductImage
+
+
+# Add the database Product to admin
+admin.site.register(Product, ProductAdmin)
+
+admin.site.register(ProductImage, ImageProductAdmin)

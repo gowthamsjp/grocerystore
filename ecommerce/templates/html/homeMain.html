@@ -1,0 +1,35 @@
+
+{% extends "html/nav.html" %} {% load static %} {% block content %}
+{# It is for home page to show display of products. It contains images, description, title #}
+<div class="row">
+    {% for product in product %}
+            <div class="col-sm-4">
+
+                <div class="card" >
+                            {% if product.productimage_set.all %}
+                                {% for item in product.productimage_set.all %}
+                                    {% if item.featured %}
+                                            {# to print the image#}
+                                        <img src="media/{{ MEDIA_URL }}{{ item.image }}" class="card-img-top" />
+                                    {% endif %}
+                                {% endfor %}
+                            {% endif %}
+
+                    <div class="card-body">
+                               {#  to print the title, price and description. "truncatewords: #" : is to print the numbers of words in description #}
+                            <a href='{{ product.get_absolute_url }}'><h3>{{ product.title }}</h3></a>
+                            <p class="card-text"> {{product.description|truncatewords:10}} </p>
+                            <p>
+                                {#  The link of a unique product. "get_absolute_url" is a function in models.py #}
+                                <a href="{{ product.get_absolute_url }}" class="btn btn-primary" role="button">View</a>
+                                <a href="" class="btn btn-default" role="button"></a>
+                            </p>Price: <b>${{ product.price }}</b>
+                    </div>
+                </div>
+            </div>
+            <br/><hr/>
+    {% endfor %}
+
+
+</div>
+{% endblock content %}

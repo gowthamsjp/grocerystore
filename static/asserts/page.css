@@ -1,0 +1,125 @@
+/* * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  border: none;
+}
+
+#Image_3 {
+  opacity: 0.48;
+  filter: drop-shadow(12px 3px 5px rgba(0, 0, 0, 0.161));
+  position: absolute;
+  width: 513px;
+  height: 342px;
+  left: 1322px;
+  top: 270px;
+  overflow: visible;
+}
+
+#Image_2 {
+  opacity: 0.69;
+  filter: drop-shadow(12px 3px 6px rgba(0, 0, 0, 0.161));
+  position: absolute;
+  width: 515px;
+  height: 340px;
+  left: 722px;
+  top: 272px;
+  overflow: visible;
+}
+#Image_4 {
+  opacity: 0.56;
+  filter: drop-shadow(12px 3px 6px rgba(0, 0, 0, 0.161));
+  position: absolute;
+  width: 504px;
+  height: 343px;
+  left: 117px;
+  top: 273px;
+  overflow: visible;
+}
+
+#Veggies {
+  filter: drop-shadow(0px 3px 6px rgba(0, 0, 0, 0.161));
+  position: absolute;
+  left: 248px;
+  top: 375px;
+  overflow: visible;
+  width: 265px;
+  white-space: nowrap;
+  text-align: center;
+  font-family: Segoe UI Emoji;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 75px;
+
+  letter-spacing: 0.01px;
+}
+
+#Fruits {
+  filter: drop-shadow(0px 3px 6px rgba(0, 0, 0, 0.161));
+  position: absolute;
+  left: 890px;
+  top: 375px;
+  overflow: visible;
+  width: 181px;
+  white-space: nowrap;
+  text-align: center;
+  font-family: Segoe UI Emoji;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 75px;
+
+  letter-spacing: 0.01px;
+}
+
+#Drinks {
+  filter: drop-shadow(0px 3px 6px rgba(0, 0, 0, 0.161));
+  position: absolute;
+  left: 1475px;
+  top: 375px;
+  overflow: visible;
+  width: 209px;
+  white-space: nowrap;
+  text-align: center;
+  font-family: Segoe UI Emoji;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 75px;
+
+  letter-spacing: 0.01px;
+}
+#Sign_in {
+  filter: drop-shadow(0px 3px 6px rgba(0, 0, 0, 0.161));
+  position: absolute;
+  left: 633px;
+  top: 773px;
+  overflow: visible;
+  width: 151px;
+  white-space: nowrap;
+  text-align: center;
+  font-family: Segoe UI Emoji;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 50px;
+
+  letter-spacing: 0.01px;
+}
+
+#Sign_up {
+  filter: drop-shadow(0px 3px 6px rgba(0, 0, 0, 0.161));
+  position: absolute;
+  left: 1253px;
+  top: 773px;
+  overflow: visible;
+  width: 169px;
+  white-space: nowrap;
+  text-align: center;
+  font-family: Segoe UI Emoji;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 50px;
+
+  letter-spacing: 0.01px;
+}
+.customA {
+  color: #9b250c;
+} */
