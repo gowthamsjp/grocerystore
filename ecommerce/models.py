@@ -28,18 +28,18 @@ class Product(models.Model):
         return self.price
     # to get the link of a unique product
     def get_absolute_url(self):
-        return reverse("product", kwargs={"slug": self.slug, "id":self.id})
+        return reverse("product", kwargs={"slug": self.slug})
 
 class ProductImage(models.Model):
     product = models.ForeignKey(Product, on_delete=models.CASCADE,)
-    image = models.ImageField(upload_to='media/')
+    image = models.ImageField(upload_to='')
     featured = models.BooleanField(default=False)
     updated = models.DateTimeField(auto_now_add=False, auto_now=True)
     thumbnail = models.BooleanField(default=False)
     active = models.BooleanField(default=True)
 
     def __unicode__(self):
-        return self.title
+        return self.product.title
 
 
 

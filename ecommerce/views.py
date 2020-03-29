@@ -1,19 +1,23 @@
+# TODO: Searching function: Idea create one more catergory variable in product models to search. If the key word of title of product not valid => then search continue category to recommend on the page search.html. 
 from django.shortcuts import render, redirect
 # from django.http import HttpResponse
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib import messages
 from django.contrib.auth.models import User
 # from .forms import UserRegisterForm
-from .models import User, Product
+from .models import User, Product, ProductImage
 from django.contrib.auth import authenticate, login
 from django.contrib.auth import logout
 from django.contrib.auth.decorators import login_required
 from django.http import Http404
 
 def home(request):
-    user = User.objects.filter(id=request.user.id)
-    return render(request, 'html/home.html', {'title': 'Home Page', 'user': user})
+    return render(request, 'html/home.html', {'title': 'Home Page'})
 
+def search(request): 
+    context = {}
+    template = 'html/homeMain.html'
+    return render(request, template, context)
 
 @login_required
 def about(request):
@@ -81,15 +85,17 @@ def homeMain(request):
     template = 'html/homeMain.html'
     return render(request, template, context)
 
+# for a specific product
 @login_required
-def product(request,slug,id):
+def UniqueProduct(request,slug):
     try:
-        products = Product.objects.get(slug=slug)
-        id = Product.objects.get(id = id)
-        print(products.title)
-        context = {'product': products,
+        product = Product.objects.get(slug=slug)
+        # print(products.title)
+        # images = ProductImage.productimage_set.all()
+        images = ProductImage.objects.filter(product=product)
+        context = {'product': product,'images': images, 
                    'title': 'Home Page'}
         template = 'html/product.html'
+        return render(request, template, context) 
     except:
         raise Http404("Does not exist")
-    return render(request, template, context)
