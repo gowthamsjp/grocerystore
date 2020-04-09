@@ -26,6 +26,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django.contrib.sites',
+    'carts',
 ]
 # south: to check the new update
 MIDDLEWARE = [
@@ -36,7 +37,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-]
+    ]
 
 ROOT_URLCONF = 'cmpe133.urls'
 
@@ -70,6 +71,8 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'USER':'minhanh6998', 
+        'PASSWORD':'Lhma6998'
     }
 }
 
@@ -90,7 +93,18 @@ AUTH_PASSWORD_VALIDATORS = [
         'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
     },
 ]
-
+TEMPLATE_CONTEXT_PROCESSORS =[
+     'django.template.context_processors.debug',
+    'django.template.context_processors.request',
+    'django.contrib.auth.context_processors.auth',
+    'django.contrib.messages.context_processors.messages',
+    'django.template.context_processors.i18n',
+    'django.template.context_processors.media',
+    'django.template.context_processors.static',
+    'django.template.context_processors.csrf',
+    'django.template.context_processors.request',
+    'django.template.context_processors.tz',
+]
 # Internationalization
 # https://docs.djangoproject.com/en/3.0/topics/i18n/
 
@@ -111,7 +125,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 
 #remember the link of media is different on databasbe and html, so html need to + "/media" on src of img
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media/media')
+MEDIA_ROOT = os.path.join(BASE_DIR, './media/')
 MEDIA_URL = '/media/'
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(os.path.dirname(BASE_DIR), 'static', 'images')

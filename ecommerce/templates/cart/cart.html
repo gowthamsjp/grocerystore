@@ -1,0 +1,45 @@
+{% extends 'html/nav.html' %} {% block content %}
+    {% if empty == False %}
+    {% comment %} If the cart has items {% endcomment %}
+        <div class="col-sm-8 col-sm-offset-2">
+            <table class="table">
+            <thead>
+                <tr>
+                <th scope="col">Item</th>
+                <th scope="col">Price</th>
+                <th scope="col">Qty</th>
+                <th>Total Count: {{ cart.totalCount }} </th>
+                </tr>
+            </thead>
+            <tbody>
+            {% for item in cart.cartitem_set.all %}
+            <tr>
+                <td><b>{{item.product.title }}</b></td>
+                <td>{{ item.product.salePrice }}</td>
+                {% comment %} the input  of the number of items {% endcomment %}
+                <th>
+                    <form action="{% url "delete_cart" item.product.slug %}" method='POST'>
+                    {% csrf_token %}
+                        <input name='delete' type="number" value="{{ item.quantity }}"/><button type='submit' >Ok</button>
+                    </form>
+                </th> 
+                <td><a href='{% url "delete_cart" item.product.slug %}?qty=0'>Remove</a></td>
+            </tr>
+            {% endfor %}
+        </tbody>
+        <tfoot>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td>Total : {{ cart.total }}</td>
+            </tr>
+        </tfoot>
+        </table>
+        </div>
+        
+    {% else %} 
+    {% comment %}  If the cart is none item {% endcomment %}
+    <h1>{{ message_empty }}</h1>
+    {% endif %} 
+{% endblock content %}

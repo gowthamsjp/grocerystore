@@ -8,11 +8,11 @@ from .models import Product, ProductImage
 class ProductAdmin(admin.ModelAdmin):
     date_hierarchy = 'timestamp'  # show the time filter on database
     # create search function on database
-    search_fields = ['title', 'description', 'price']
-    list_display = ['__unicode__', 'title', 'price',
+    search_fields = ['title', 'description', 'salePrice']
+    list_display = ['__str__', 'title', 'price','salePrice',
                     'active', 'updated']  # custom display of database
     # list_display = [ 'title', 'price', 'active', 'updated']
-    list_editable = ['price',
+    list_editable = ['salePrice',
                      'active']  # edit the price and active status on database directly. You don't need to click on each
     # to filter group in same price , same plug, and active or dec
     list_filter = ['price', 'slug', 'active']
@@ -25,7 +25,7 @@ class ProductAdmin(admin.ModelAdmin):
 
 
 class ImageProductAdmin(admin.ModelAdmin):
-    list_display = ['__unicode__', 'image']
+    list_display = ['__str__', 'image']
     list_filter = ['product']
 
     class Meta:

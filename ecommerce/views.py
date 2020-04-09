@@ -1,4 +1,3 @@
-# TODO: Searching function: Idea create one more catergory variable in product models to search. If the key word of title of product not valid => then search continue category to recommend on the page search.html. 
 from django.shortcuts import render, redirect
 # from django.http import HttpResponse
 from django.contrib.auth.forms import UserCreationForm
@@ -11,12 +10,29 @@ from django.contrib.auth import logout
 from django.contrib.auth.decorators import login_required
 from django.http import Http404
 
-def home(request):
-    return render(request, 'html/home.html', {'title': 'Home Page'})
+# def home(request):
+#     return render(request, 'html/home.html', {'title': 'Home Page'})
+#  main page 
+#  @login_required
+def homeMain(request):
+    product = Product.objects.all()
+    context = {'product': product,
+               'title': 'Home Page'}
+    template = 'html/homeMain.html'
+    return render(request, template, context)
 
 def search(request): 
-    context = {}
-    template = 'html/homeMain.html'
+    try:
+        search = request.GET.get('search')
+    except: 
+        search = None
+    if search: 
+        product = Product.objects.filter(title__icontains = search)
+        context = {'query': search, 'product': product}
+        template = 'html/search.html'
+    else: 
+        context = {}
+        template = 'html/homeMain.html'
     return render(request, template, context)
 
 @login_required
@@ -27,6 +43,7 @@ def about(request):
 
 #  sign in function
 def signin(request):
+    request.session.set_expiry(120000)
     if request.method == 'POST':
         username = request.POST['username']
         password = request.POST['password']
@@ -46,11 +63,12 @@ def signin(request):
 def logout_views(request):
     logout(request)
     messages.info(request, "Logged out successfully!")
-    return redirect('home')
+    return redirect('homeMain')
 
 
 # register function
 def register(request):
+    request.session.set_expiry(120000)
     if request.method == 'POST':
         username = request.POST['username']
         first_name = request.POST['first_name']
@@ -75,18 +93,8 @@ def register(request):
     #     form = UserCreationForm()
     return render(request, 'html/register.html')
 
-
-#  main page after login
-@login_required
-def homeMain(request):
-    product = Product.objects.all()
-    context = {'product': product,
-               'title': 'Home Page'}
-    template = 'html/homeMain.html'
-    return render(request, template, context)
-
 # for a specific product
-@login_required
+# @login_required
 def UniqueProduct(request,slug):
     try:
         product = Product.objects.get(slug=slug)
@@ -97,5 +105,5 @@ def UniqueProduct(request,slug):
                    'title': 'Home Page'}
         template = 'html/product.html'
         return render(request, template, context) 
-    except:
+    except product.DoesNotExist:
         raise Http404("Does not exist")

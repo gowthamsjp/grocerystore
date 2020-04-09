@@ -1,8 +1,8 @@
-{% extends "html/nav.html" %} {% load static %} {% block content %}
+{% comment %} {% extends "html/nav.html" %} {% load static %} {% block content %}
 <head>
   <link rel="stylesheet" href="{% static 'assests/page.css' %}" />
 </head>
-<body>
+<body> {% endcomment %}
   <!-- <img id="Image_3" src="{% static 'images/Image_3.jpg' %}" />
 
   <img id="Image_2" src="{% static 'images/Image_2.jpg' %}" />
@@ -25,11 +25,11 @@
    <!-- <div id="Sign_up">
     <span><a href="{% url 'register' %}" class="customA">Sign Up</a></span>
   </div> -->
-  <div>
+  {% comment %} <div>
     <span><a  href="{% url 'signin' %}">Sign In</a></span>
   </div>
   <div>
     <span><a href="{% url 'register' %}" >Sign Up</a></span>
   </div>
 </body>
-{% endblock content %}
+{% endblock content %} {% endcomment %}

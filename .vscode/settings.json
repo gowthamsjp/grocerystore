@@ -1,6 +1,13 @@
 {
     "python.linting.pylintEnabled": true,
     "python.linting.enabled": true,
-    "python.pythonPath": "cmpe133/bin/python3.8",
-    "git.ignoreLimitWarning": true
+    "python.pythonPath": "/usr/bin/python3.8",
+    "git.ignoreLimitWarning": true,
+    "files.associations": {
+        "**/*.html": "html",
+        "**/templates/**/*.html": "django-html",
+        "**/templates/**/*": "django-txt",
+        "**/requirements{/**,*}.{txt,in}": "pip-requirements",
+        "wait.h": "c"
+    }
 }

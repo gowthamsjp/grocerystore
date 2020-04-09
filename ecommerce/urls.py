@@ -1,12 +1,17 @@
 from django.conf import settings
 from django.contrib import admin
 from django.urls import path, include
-from django.conf.urls import url, include
+from django.conf.urls import url, include, re_path
 from . import views
-from .views import home, register, homeMain, about, signin, logout_views, UniqueProduct, search
-urlpatterns = [
+from .views import register, homeMain, about, signin, logout_views, UniqueProduct, search
+from carts.views import cart, update_cart, delete_cart
+
+
+
+urlpatterns = [ 
     # first page, before sign in
-    path('', home, name='home'),
+    # path('', home, name='home'),
+    path('', homeMain, name="homeMain"),
     # to introduce company
     path('about', about, name='about'),
     # to sign in
@@ -16,7 +21,7 @@ urlpatterns = [
     # to log out
     path("logout", logout_views, name="logout"),
     # this link is to display product after log in
-    path('homeMain', homeMain, name="homeMain"),
+    # path('homeMain', homeMain, name="homeMain"),
 
     # This link is for searching, s for search
     url(r'^s/$',search, name='search'),
@@ -27,4 +32,12 @@ urlpatterns = [
     #  if use "\d+" to make the url only digit:     (?P<id>\d+)
     # url(r'^product/(?P<slug>[\w-]+)/$', UniqueProduct, name='product'),
     path('<slug:slug>UniqueProduct', UniqueProduct , name='product'),
+
+    path('yourCart', cart, name='cart'),
+    url(r'^yourCart/(?P<slug>[\w-]+)/$',update_cart, name='update_cart'),
+    # path('yourCart/<slug:slug>/<int:qty>', update_cart, name='update_cart'),
+    # path('yourCart/Delete/<slug:slug>', delete_cart, name='delete_cart'),
+    url(r'^yourCart/delete/(?P<slug>[\w-]+)/$',delete_cart, name='delete_cart'),
+
+
 ]

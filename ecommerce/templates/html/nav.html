@@ -44,25 +44,36 @@
           {% comment %} search bar form {% endcomment %}
                     <form class="form-inline my-2 my-lg-0" action='/s/'> 
                     {% comment %} /s/ for searching {% endcomment %}
-                          <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search"  name='Search'>{% comment %} name is to display the searching variable  {% endcomment %}
+                          <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="search"  name='search'>{% comment %} name is to display the searching variable  {% endcomment %}
                     <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
                     </form> 
 {#    It is for tabs #}
            <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav">
                     {#    This one is not log in yet #}
-                       {% if not user.is_authenticated %}
-                           <li class="nav-item active"> <a class="nav-link" href="#"> Home </a></li>
-
+                       {% if not user.is_authenticated %} 
+                           {% comment %} <li class="nav-item active"> <a class="nav-link" href="#"> Home </a></li> {% endcomment %}
+                           <li class="nav-item">
+                            <a class="nav-link" href="{% url 'homeMain' %}">Home</a>
+                          </li>
+                          <li class="nav-item">
+                            <a  class="nav-link"  href="{% url 'signin' %}">Sign In</a>
+                          </li>
+                          <li class="nav-item">
+                            <a  class="nav-link"  href="{% url 'register' %}">Register</a>
+                          </li>
                         {#This one is after login #}
                        {% else %}
                            <li class="nav-item">
                                 <a class="nav-link" href="{% url 'about' %} ">About</a>
                             </li>
                           <li class="nav-item">
-                            <a class="nav-link" href="{% url 'homeMain' %}">HomeMain</a>
+                            <a class="nav-link" href="{% url 'homeMain' %}">Home</a>
                           </li>
-                           <li class="nav-item"> <a class="nav-link" href="{% url 'logout' %}">Logout</a> </li>
+                           <li class="nav-item">
+                                <a class="nav-link" href="{% url 'cart' %} ">Cart <span class="badge badge-primary">{% if not request.session.key  %}0{% else %}{{ request.session.key}}{% endif %}</span></a>
+                            </li>
+                           <li class="nav-item"><a class="nav-link" href="{% url 'logout' %}">Logout</a> </li>
                        {% endif %}
                 </ul>
            </div>
