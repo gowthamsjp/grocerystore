@@ -37,37 +37,3 @@ class ProductImage(models.Model):
     def __str__(self):
         return self.product.title
 
-
-
-
-# class Cart(models.Model):
-#     creation_date = models.DateTimeField(verbose_name=_('creation date'))
-# # for item
-# class Product(models.Model):
-#     title = models.CharField(blank=False, max_length=100)
-#     price = models.FloatField
-#     description = models.CharField(blank=False,max_length=1000)
-#
-#     # image = models.ImageField(upload_to ='./static/images/')
-#     def __str__(self):
-#         return self.user.title
-#
-# # for cart
-# class OrderItem(models.Model):
-#     item = models.ForeignKey(Product, on_delete=models.CASCADE)
-#
-#     def __str__(self):
-#         return self.user.title
-#
-# class Cart(models.Model):
-#     user = models.ForeignKey(User, on_delete=models.SET_NULL, null=True, blank=True)
-#
-# class Order(models.Model):
-#     user = models.ForeignKey(User, on_delete=models.SET_NULL, null=True, blank=True)
-#     items = models.ManyToManyField(OrderItem)
-#     star_date = models.DateTimeField(auto_now_add=True)
-#     ordered_date = models.DateTimeField()
-#     ordered = models.BooleanField(default=False)
-#
-#     def __str__(self):
-#         return self.user.username

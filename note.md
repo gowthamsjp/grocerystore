@@ -17,6 +17,7 @@
         8. A cart => cart.html - no css yet
     static/images : picture
     media: for the picture of products
+        9. To checkout product => checkout.html in "checkout" folder - no css yet
 
 ## back-end
 

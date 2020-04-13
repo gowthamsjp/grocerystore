@@ -26,13 +26,14 @@ def search(request):
         search = request.GET.get('search')
     except: 
         search = None
+
     if search: 
         product = Product.objects.filter(title__icontains = search)
+        
         context = {'query': search, 'product': product}
         template = 'html/search.html'
     else: 
-        context = {}
-        template = 'html/homeMain.html'
+        return redirect('homeMain')
     return render(request, template, context)
 
 @login_required
@@ -50,7 +51,7 @@ def signin(request):
         user = authenticate(request, username=username, password=password)
         if user is not None:
             login(request, user)
-            return redirect('about')
+            return redirect('homeMain')
         else:
             messages.info(request, 'Invalid credentials')
             return redirect('signin')

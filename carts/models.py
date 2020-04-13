@@ -44,14 +44,6 @@ class Cart(models.Model):
         self.total = total
         self.save()
 
-    
-        
-        
-    # def TotalCart(total):
-    #     taxCA = 0.0925
-    #     totalTax = total * taxCA
-    #     total = totalTax+total
-    #     return total
 
 
 

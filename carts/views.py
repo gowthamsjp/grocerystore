@@ -10,6 +10,7 @@ from ecommerce.views import *
 from django.urls import reverse
 from django.shortcuts import get_object_or_404
 from django.contrib.sessions.models import Session
+from orders.models import *
 # Cart interface
 @login_required
 def cart(request):
@@ -91,7 +92,7 @@ def delete_cart(request,slug):
                         cartItem = CartItem.objects.filter(product=product)
                         cartItem.delete()
                 elif int(qty) < 0:
-                        messages.error(request, 'The number of' + item.product.title + ' must be bigger than 1!!!')
+                        messages.error(request, 'The number of' + item.product.title + ' must be  bigger than 1!!!')
                 else:
                         item.quantity = qty
                         item.save()          
@@ -119,6 +120,11 @@ def delete_cart(request,slug):
         if totalCount == 0: 
                 cart1 = Cart.objects.filter(user = request.user, ordered=False)
                 cart1.delete()
+                try: 
+                        order = Order.objects.filter(user = request.user, cart=cart1)
+                        order.delete()
+                except:
+                        pass
         else:
                 cart.totalCount = totalCount
                 cart.save()

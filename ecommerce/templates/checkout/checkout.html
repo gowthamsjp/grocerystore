@@ -1,0 +1,74 @@
+{% extends 'html/nav.html' %}  {% load static %}{% block content %}
+
+<div class="container">
+<div >
+        <a href="{% url "add_address" %}">Change Address</a>
+        </div>
+        <div class="col">
+        <h3>Default Address </h3>
+            {% for address in billing %}
+                {{ address.get_address}}
+            {% endfor %}
+        {% comment %} {% else  %}
+            <h1>Please choose the default address </h1>
+            <form action="{%  url "defaultAddress" %}" method="POST">
+                {% csrf_token %}
+                {% for address in billingFalse %}
+                        <li><input type="radio" name='shipping' value='{{ address.id }}'>{{ address.get_address}}</li>
+                {% endfor %}
+                <button>Submit</button>
+            </form> {% endcomment %}
+</div>
+<div>
+    <h1>Tax: 9.25%</h1>
+    <h1>Subtotal: ${{ order.subTotal }}</h1>
+    <h1>Total: ${{ order.finalTotal }} </h1>
+</div>
+<div>
+
+{% comment %} ############################Do not fix or touch it ######################################### {% endcomment %}
+
+{% comment %}  This method is using "sandbox of paypal" of developer
+Account user: minhanh6998@gmail.com to check
+Account bussiness: minhanh6998Business@gmail.com 
+Remember want to activate should get the client-id and copy it to line 36 at "client-id "
+{% endcomment %}
+<h1>Credit Info </h1>
+{{ finalTotal }}
+   <!-- Set up a container element for the button -->
+    <div id="paypal-button-container"></div>
+
+    <!-- Include the PayPal JavaScript SDK -->
+    <script src="https://www.paypal.com/sdk/js?client-id=AfXMDNotjEImZREhJAtWODNKWrHTUbjPwKC-FE5IOns0QKWC-umIo1vEc4yjZLjYyR8pg9mCwZYc2IH2&currency=USD"></script>
+
+    <script>
+        // Render the PayPal button into #paypal-button-container
+        paypal.Buttons({
+            
+
+            // Set up the transaction
+            createOrder: function(data, actions) {
+                return actions.order.create({
+                    purchase_units: [{
+                        amount: {
+                            value: {{ order.finalTotal }}
+                        }
+                    }]
+                });
+            },
+
+            // Finalize the transaction
+            onApprove: function(data, actions) {
+                return actions.order.capture().then(function(details) {
+                    // Show a success message to the buyer
+                    alert('Transaction completed by ' + details.payer.name.given_name + '!');
+                    location.href="{% url 'orders' %}" //this will redirect to your index
+                });
+            }
+
+
+        }).render('#paypal-button-container');
+    </script>
+{% comment %} ###################################################################### {% endcomment %}
+
+{% endblock content %}
