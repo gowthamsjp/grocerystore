@@ -10,10 +10,6 @@ from django.contrib.auth import logout
 from django.contrib.auth.decorators import login_required
 from django.http import Http404
 
-# def home(request):
-#     return render(request, 'html/home.html', {'title': 'Home Page'})
-#  main page 
-#  @login_required
 def homeMain(request):
     product = Product.objects.all()
     context = {'product': product,
