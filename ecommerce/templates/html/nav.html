@@ -46,7 +46,7 @@
                     {% comment %} /s/ for searching {% endcomment %}
                           <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="search"  name='search'>{% comment %} name is to display the searching variable  {% endcomment %}
                     <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-                    </form> 
+                    </form>
 {#    It is for tabs #}
            <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav">
@@ -81,7 +81,13 @@
                 </ul>
            </div>
     </nav>
-
+    {% comment %} category {% endcomment %}
+                    <form  action='/category/'> 
+                        <button type='submit' name='category' value="Foods">Foods</button>
+                        <button type='submit' name='category' value="Fruits">Fruits</button>
+                        <button type='submit' name='category' value="Drinks">Drinks</button>
+                        <button type='submit' name='category' value="Others">Others</button>
+                    </form>
     {#    Status of after actions. E.g: register: register sucessfully #}
     {% if messages %} {% for message in messages %}
     <div class="alert alert-{{ message.tags }}">{{message}}</div>

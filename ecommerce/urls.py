@@ -3,7 +3,7 @@ from django.contrib import admin
 from django.urls import path, include
 from django.conf.urls import url, include, re_path
 from . import views
-from .views import register, homeMain, about, signin, logout_views, UniqueProduct, search
+from .views import register, homeMain, about, signin, logout_views, UniqueProduct, search, category
 from carts.views import cart, update_cart, delete_cart
 from orders.views import checkout, orders
 from accounts.views import add_address
@@ -23,6 +23,8 @@ urlpatterns = [
     path('register', register, name='register'),
     # to log out
     path("logout", logout_views, name="logout"),
+
+    url(r'^category/$',category, name="category"),
 
     # this link is to display product after log in
     # This link is for searching, s for search

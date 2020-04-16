@@ -8,14 +8,14 @@ from .models import Product, ProductImage
 class ProductAdmin(admin.ModelAdmin):
     date_hierarchy = 'timestamp'  # show the time filter on database
     # create search function on database
-    search_fields = ['title', 'description', 'salePrice']
-    list_display = ['__str__', 'title', 'price','salePrice',
+    search_fields = ['title', 'description', 'salePrice', 'category']
+    list_display = ['__str__', 'title', 'price','salePrice','category', 
                     'active', 'updated']  # custom display of database
     # list_display = [ 'title', 'price', 'active', 'updated']
     list_editable = ['salePrice',
-                     'active']  # edit the price and active status on database directly. You don't need to click on each
+                     'active', 'category']  # edit the price and active status on database directly. You don't need to click on each
     # to filter group in same price , same plug, and active or dec
-    list_filter = ['price', 'slug', 'active']
+    list_filter = ['price', 'slug', 'active', 'category']
     readonly_fields = ['updated', 'timestamp']  # show only, cant fix variables
     # auto update slug ==  title when adding new product
     prepopulated_fields = {"slug": ("title", "salePrice",)}

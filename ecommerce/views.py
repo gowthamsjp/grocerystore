@@ -32,6 +32,22 @@ def search(request):
         return redirect('homeMain')
     return render(request, template, context)
 
+def category(request):
+    try: 
+        chooseCategory= request.GET.get('category')
+    except: 
+        raise Http404(" A category does not exist")
+
+    if chooseCategory: 
+        category = Product.objects.filter(category = chooseCategory)
+
+        context = {'category': category, }
+        template = 'html/category.html'
+    else: 
+        return redirect('homeMain')
+    
+    return render(request, template, context)
+
 @login_required
 def about(request):
     # u = User.objects.get(username=request.user.username)
@@ -104,3 +120,4 @@ def UniqueProduct(request,slug):
         return render(request, template, context) 
     except product.DoesNotExist:
         raise Http404("Does not exist")
+
