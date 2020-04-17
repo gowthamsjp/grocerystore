@@ -1,108 +1,182 @@
-/*{
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  border: none;
-}*/
-#AI_mail_ {
-  width: 60px;
-  height: 45px;
-  left: 1716px;
-  top: 91px;
+/* Desktops and laptops ----------- */
+@media only screen 
+and (min-width :975px) {
+    *{
+        padding: 0; 
+        margin: 0; 
+    }
+    /* To hide the check */
+input#menu {
+  display: none;
 }
+    .navbar-group{
+        top: -70px; 
+        right: -70px; 
+        clear: both;
+        display: inline;
+        position: relative;
+        z-index: 1;
+        margin: 0 auto;
+        padding: 0px;
+        background-color:#FFFFFF;
+    }
+    
+    .navbar-main-group  {
+        margin: 0;
+        display: block;
+        text-align: center;
+        padding: 0;
+    
+    }
+    .navbar-part-group  {
+         /*font-family: Georgia, "Times New Roman", Times, serif;*/
+    font-family: sans-serif, Helvetica, Arial;
+    font-size: 25px;
+    font-weight: normal;
+    position: relative;
+    list-style: none;
+    margin: 0;
+    display: inline-block;
+    padding: 20px;
+    }
+    
+    .navbar-part-group a{
+        float: left;
+        display: block;
+        color:black;
+        text-align: center;
+        text-decoration: none;
+        font-size: 25px;
+        border-bottom: 3px solid transparent;
+    }
+      
+    .navbar-part-group a:hover {
+        border-bottom: 3px solid black;
+        text-decoration: none;
+      }
+      /* Dropdown Content (Hidden by Default) */
+      .dropdown-content {
+        display: none;
+        position: absolute;
+        background-color: #f9f9f9;
+        min-width: 160px;
+        box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+        z-index: 1;
+      }
+      
+      /* Links inside the dropdown */
+      .dropdown-content a {
+        color: black;
+        padding: 12px 16px;
+        text-decoration: none;
+        display: block;
+      }
+      
+      /* Change color of dropdown links on hover */
+      .dropdown-content a:hover {background-color: #f1f1f1}
+      
+      /* Show the dropdown menu on hover */
+      .dropdown:hover .dropdown-content {
+        display: block;
+      }
+      
+      /* Change the background color of the dropdown button when the dropdown content is shown */
 
-#AI_mappointer_z {
-  position: absolute;
-  width: 37.6px;
-  height: 60px;
-  left: 1612px;
-  top: 82px;
-  overflow: visible;
-}
-.AI_mappointer_bc {
-  overflow: visible;
-  position: absolute;
-  width: 37.6px;
-  height: 60px;
-  left: 0px;
-  top: 0px;
-  transform: matrix(1, 0, 0, 1, 0, 0);
-}
-#AI_home_bd {
-  position: absolute;
-  width: 59.988px;
-  height: 60.1px;
-  left: 1827px;
-  top: 82px;
-  overflow: visible;
-}
-
-#AI_mail_ {
-  position: absolute;
-  width: 60px;
-  height: 45px;
-  left: 1716px;
-  top: 91px;
-  overflow: visible;
-}
-
-#AI_mappointer_z {
-  position: absolute;
-  width: 37.6px;
-  height: 60px;
-  left: 1612px;
-  top: 82px;
-  overflow: visible;
-}
-.AI_mappointer_bc {
-  overflow: visible;
-  position: absolute;
-  width: 37.6px;
-  height: 60px;
-  left: 0px;
-  top: 0px;
-  transform: matrix(1, 0, 0, 1, 0, 0);
-}
-#AI_home_bd {
-  position: absolute;
-  width: 59.988px;
-  height: 60.1px;
-  left: 1827px;
-  top: 82px;
-  overflow: visible;
-}
-
-#AI_mail_ {
-  position: absolute;
-  width: 60px;
-  height: 45px;
-  left: 1716px;
-  top: 91px;
-  overflow: visible;
-}
-
-#AI_mappointer_bb {
-  position: absolute;
-  width: 37.6px;
-  height: 60px;
-  left: 0px;
-  top: 0px;
-  overflow: visible;
-}
-.AI_mappointer_bc {
-  overflow: visible;
-  position: absolute;
-  width: 37.6px;
-  height: 60px;
-  left: 0px;
-  top: 0px;
-  transform: matrix(1, 0, 0, 1, 0, 0);
-}
-#AI_home_bd {
-  position: absolute;
-  width: 59.988px;
-  height: 60.1px;
-  left: 1827px;
-  top: 82px;
-  overflow: visible;
+      
 } 
+@media only screen 
+and (max-width :975px) {
+    *{
+        padding: 0; 
+        margin: 0; 
+    }
+
+    .navbar-group{
+  max-height: 0;
+   overflow: hidden;
+    }
+    .navbar-part-group  {
+   font-family: sans-serif, Helvetica, Arial;
+   font-size: 25px;
+   font-weight: normal;
+   position: relative;
+   list-style: none;
+   padding: 0 0 0 50px;
+
+   }
+
+
+   .navbar-part-group a{
+    display:block;
+    padding: 10px;
+    text-decoration: none;
+}
+.collapse-menu label {
+    font-family: 'Sedgwick Ave Display', cursive;
+    font-size: 20px; 
+    display: block;
+    cursor: pointer;
+    padding: 10px 0 10px 50px;
+}
+/* To hide the check */
+input#menu {
+    display: none;
+}
+
+/* input:checked +label {
+    background-image: url(close.png);
+}
+
+input:checked ~ label {
+    background-image: url(close.png);
+} */
+
+/* To expand menu after clicking */
+input:checked ~ .navbar-group {
+    max-height: 100%;
+}
+
+
+
+/* Dropdown Content (Hidden by Default) */
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+/* Links inside the dropdown */
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+/* Change color of dropdown links on hover */
+.dropdown-content a:hover {background-color: #f1f1f1}
+
+/* Show the dropdown menu on hover */
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+}
+
+
+
+/* {% comment %} search bar form {% endcomment %}
+<form  action='/s/'> 
+{% comment %} /s/ for searching {% endcomment %}
+      <input  type="search" placeholder="Search" aria-label="search"  name='search'>{% comment %} name is to display the searching variable  {% endcomment %}
+<button type="submit">Search</button>
+</form>
+{% comment %} category {% endcomment %}
+<form  action='/category/'> 
+    <button type='submit' name='category' value="Foods">Foods</button>
+    <button type='submit' name='category' value="Fruits">Fruits</button>
+    <button type='submit' name='category' value="Drinks">Drinks</button>
+    <button type='submit' name='category' value="Others">Others</button>
+</form>  */
