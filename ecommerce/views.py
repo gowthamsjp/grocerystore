@@ -10,6 +10,8 @@ from django.contrib.auth import logout
 from django.contrib.auth.decorators import login_required
 from django.http import Http404
 
+from .forms import ContactForm
+
 def homeMain(request):
     product = Product.objects.all()
     context = {'product': product,
@@ -121,3 +123,19 @@ def UniqueProduct(request,slug):
     except product.DoesNotExist:
         raise Http404("Does not exist")
 
+def contact(request):
+    template = "html/contact.html"
+
+    if request.method == "POST":
+        form = ContactForm(request.POST)
+
+        if form.is_valid():
+            form.save()
+            messages.info(request, "Your feedback / questions has sent")
+            return redirect('homeMain')
+    
+    else:
+        form = ContactForm()
+
+    context = {'form':form,}
+    return render(request, template, context)

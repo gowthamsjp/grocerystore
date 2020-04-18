@@ -3,11 +3,10 @@ from django.contrib import admin
 from django.urls import path, include
 from django.conf.urls import url, include, re_path
 from . import views
-from .views import register, homeMain, about, signin, logout_views, UniqueProduct, search, category
+from .views import register, homeMain, about, signin, logout_views, UniqueProduct, search, category, contact
 from carts.views import cart, update_cart, delete_cart
 from orders.views import checkout, orders
 from accounts.views import add_address
-
 
 
 
@@ -23,6 +22,8 @@ urlpatterns = [
     path('register', register, name='register'),
     # to log out
     path("logout", logout_views, name="logout"),
+    #to contact us
+    path("contact",contact, name="contact"),
 
     url(r'^category/$',category, name="category"),
 

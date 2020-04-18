@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Product, ProductImage
+from .models import Product, ProductImage, Contact
 
 
 # This page to upload the database on admin site
@@ -36,3 +36,4 @@ class ImageProductAdmin(admin.ModelAdmin):
 admin.site.register(Product, ProductAdmin)
 
 admin.site.register(ProductImage, ImageProductAdmin)
+admin.site.register(Contact)
