@@ -6,7 +6,7 @@ from . import views
 from .views import register, homeMain, about, signin, logout_views, UniqueProduct, search, category, contact
 from carts.views import cart, update_cart, delete_cart
 from orders.views import checkout, orders
-from accounts.views import add_address
+from accounts.views import add_address, profile
 
 
 
@@ -42,5 +42,7 @@ urlpatterns = [
     path('checkout', checkout , name='checkout'),
     path('orders', orders , name='orders'),
     path('add_address', add_address, name="add_address"), 
+    path('profile', profile, name="profile"), 
+
     # path('defaultAddress', defaultAddress, name='defaultAddress')
 ]

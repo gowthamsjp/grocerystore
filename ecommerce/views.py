@@ -4,13 +4,13 @@ from django.contrib.auth.forms import UserCreationForm
 from django.contrib import messages
 from django.contrib.auth.models import User
 # from .forms import UserRegisterForm
-from .models import User, Product, ProductImage
+from .models import User, Product, ProductImage, Contact
 from django.contrib.auth import authenticate, login
 from django.contrib.auth import logout
 from django.contrib.auth.decorators import login_required
 from django.http import Http404
 
-from .forms import ContactForm
+# from .forms import ContactForm
 
 def homeMain(request):
     product = Product.objects.all()
@@ -123,19 +123,45 @@ def UniqueProduct(request,slug):
     except product.DoesNotExist:
         raise Http404("Does not exist")
 
-def contact(request):
-    template = "html/contact.html"
+# def contact(request):
+#     template = "html/contact.html"
 
-    if request.method == "POST":
-        form = ContactForm(request.POST)
+#     if request.method == "POST":
+#         form = ContactForm(request.POST)
 
-        if form.is_valid():
-            form.save()
-            messages.info(request, "Your feedback / questions has sent")
-            return redirect('homeMain')
+#         if form.is_valid():
+#             form.save()
+#             messages.info(request, "Your feedback / questions has sent")
+#             return redirect('homeMain')
     
-    else:
-        form = ContactForm()
+#     else:
+#         form = ContactForm()
 
-    context = {'form':form,}
+#     context = {'form':form,}
+#     return render(request, template, context)
+
+def contact(request): 
+    request.session.set_expiry(120000)
+    try:
+        user = request.user
+        context = { 'user':user, }
+    except: 
+        pass
+    
+    if request.method == 'POST':
+        firstName = request.POST['firstName']
+        lastName = request.POST['lastName']
+        email = request.POST['email']
+        if request.user.is_authenticated: 
+            contact = Contact.objects.create( user=request.user, firstName=firstName, lastName=lastName,email=email)
+            contact.save()
+        else:
+            contact = Contact.objects.create(firstName=firstName, lastName=lastName,email=email)
+            contact.save()
+        messages.info(request, "Your feedback / questions has sent")
+        return redirect('contact')
+
+    template = 'accounts/newaddress.html'
     return render(request, template, context)
+
+

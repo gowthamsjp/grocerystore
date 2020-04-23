@@ -24,7 +24,14 @@
         </td>
             <td><a href="{{ product.get_absolute_url }}">{{ product.title  }}</a></td>
             <td>{{ product.salePrice }}</td>
-            <td><a href='{% url "update_cart" product.slug %}?qty=1'>Add To Cart</a></td>
+            <td>
+             {% if not user.is_authenticated %} 
+                    <span><a href='{% url "signin" %}'>Sign In to Add</a></span>
+                    {%else%}
+                    <span><a href='{% url "update_cart" product.slug %}?qty=1'>Add To Cart</a></span>
+                    {%endif%}
+            {% comment %} <a href='{% url "update_cart" product.slug %}?qty=1'>Add To Cart</a> {% endcomment %}
+            </td>
         </tr>
     {% endfor %}
  </table>

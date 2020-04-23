@@ -2,6 +2,9 @@ from django.urls import reverse
 from django.db import models
 from django.contrib.auth import get_user_model
 User = get_user_model()
+from django.conf import settings
+
+
 
 STATUS_CHOICES = (
     ("Fruits", "Fruits"),
@@ -47,11 +50,13 @@ class ProductImage(models.Model):
         return self.product.title
 
 class Contact(models.Model):
-    first_name= models.CharField(max_length = 50)
-    last_name = models.CharField(max_length = 50)
+    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, null=True,  blank=True)
+    firstName= models.CharField(max_length = 50)
+    lastName = models.CharField(max_length = 50)
     email = models.EmailField()
-    message =models.TextField()
-
+    message = models.TextField()
+    solved_status= models.BooleanField(default=False)
+    timestamp = models.DateTimeField(auto_now_add=True, auto_now=False)
     def __str__(self):
-        return f'{self.first_name}{self.last_name}'
+        return f'{self.firstName} {self.lastName}'
 

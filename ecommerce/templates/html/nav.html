@@ -76,24 +76,12 @@
                     </li>
                     <li class="navbar-part-group"><a  href="{% url 'about' %} ">About</a></li>
                     <li class="navbar-part-group"><a href="{% url 'cart' %} ">Cart <span class="badge badge-primary">{% if not request.session.key  %}0{% else %}{{ request.session.key}}{% endif %}</span></a></li>
-                    <li class="navbar-part-group"><a href="{% url 'add_address' %} ">New Address</a></li>
-                    <li class="navbar-part-group"><a href="{% url 'contact' %}"> Contact</a></li>
+                    <li class="navbar-part-group"><a href="{% url 'add_address' %} ">Profile</a></li>
+                    {% comment %} <li class="navbar-part-group"><a href="{% url 'contact' %}"> Contact</a></li> {% endcomment %}
                     <li class="navbar-part-group"><a  href="{% url 'logout' %}">Logout</li>
                     <li class="navbar-part-group"><a href=""></a></li>
                     {% endif %}
                 </ul>
-               
-                   
-                  
-                
-{% comment %} category 
-<form  action='/category/' class="list-group col-lg-3"padding-top: 56px> 
-    <button type='submit' name='category' value="Foods" class="list-group-item list-group-item-action">Foods</button>
-    <button type='submit' name='category' value="Fruits" class="list-group-item list-group-item-action">Fruits</button>
-    <button type='submit' name='category' value="Drinks" class="list-group-item list-group-item-action">Drinks</button>
-    <button type='submit' name='category' value="Others" class="list-group-item list-group-item-action">Others</button>
-</form> 
-{% endcomment %}
             </nav>
         </div>
     
