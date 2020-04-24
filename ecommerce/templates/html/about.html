@@ -1,19 +1,13 @@
 {% extends 'html/nav.html' %} {% load static %} {% block content %}
 <head>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Tangerine">
-</head> 
-
-<div class="container z-depth-1 my-5 py-5 px-4 px-lg-0">
-
-  <!-- Section -->
-  <section>
-    
-    <style>
+  <style>
       .timeline {
         position: relative;
         list-style: none;
         padding: 1rem 0;
         margin: 0;
+        top:0;
       }
 
       .timeline::before {
@@ -102,15 +96,17 @@
           left: 1px;
         }
       }
-
       @media (max-width: 767.98px) {
         .timeline-element::before {
           top: 1.25rem;
         }
       }
     </style>
-    
-    <h3 class="font-weight-bold text-center dark-grey-text pb-2">About AirCart</h3>
+</head> 
+<body style=" max-width: 100%; overflow-x: hidden;">
+      <h3 class="font-weight-bold text-center dark-grey-text pb-2">About AirCart</h3>
+{% comment %} <div class="container z-depth-1 my-5 py-5 px-4 px-lg-0"> {% endcomment %}
+  
     <hr class="w-header my-4">
     <p class="lead text-center text-muted pt-2 mb-5">AirCart, the Start-Up</p>
     
@@ -151,12 +147,6 @@
 
       </div>
     </div>
-    
-  </section>
-  <!-- Section -->
-  
-</div>
-
-
- <!-- <h1> Hello, {{ user.first_name }}</h1> -->
+{% comment %} </div> {% endcomment %}
+</body>
 {% endblock content %}

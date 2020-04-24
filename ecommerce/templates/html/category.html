@@ -1,7 +1,7 @@
 
 {% extends "html/nav.html" %} {% load static %}{% block content %}
-
-{% if category %}
+<body style="max-width: 100%; overflow-x: hidden;">
+    {% if category %}
     <table class="table">
         <thead>
         <th></th>
@@ -38,6 +38,8 @@
 {% else %}
     <h2>  No products in category. Try again!!! </h2>
 {% endif %}
+</body>
+
 
 
 {% endblock content %}

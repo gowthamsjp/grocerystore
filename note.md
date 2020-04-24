@@ -18,7 +18,7 @@
     static/images : picture
     media: for the picture of products
         9. To checkout product => checkout.html in "checkout" folder - no css yet
-
+        10. To contact => newaddress.html in accounts folder and views.py in ecommerce folder
 ## back-end
 
     models.py : database elements

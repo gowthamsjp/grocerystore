@@ -1,6 +1,7 @@
 
 {% extends "html/nav.html" %} {% load static %}{% block content %}
-<h1>Results:  {{ query }}</h1>
+<body style=" max-width: 100%; overflow-x: hidden;">
+<h1 class="text-center">Results:  {{ query }}</h1>
 {% if product %}
     <table class="table">
         <thead>
@@ -36,8 +37,8 @@
     {% endfor %}
  </table>
 {% else %}
-    <h2> Invalid Products. Try again!!! </h2>
+    <h2 class="text-center"> Invalid Products. Try again!!! </h2>
 {% endif %}
 
-
+</body>
 {% endblock content %}

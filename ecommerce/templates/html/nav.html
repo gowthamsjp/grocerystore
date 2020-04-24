@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-{% load static %}
+{% load static %}{% load sass_tags %}
 
 <html>
   <head>
@@ -20,6 +20,7 @@
       integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
       crossorigin="anonymous"
     />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
     {#   Title #}
     {% if title %}
@@ -40,46 +41,32 @@
             <nav class='navbar-group'>
                 <ul class='navbar-main-group'>
                     {% if not user.is_authenticated %} 
-                        <li class="navbar-part-group">
-                            <a href="{% url 'homeMain' %}">Home</a>
-                        </li>
-                        <li class="navbar-part-group">
-                            <a href="{% url 'register' %}">Register</a>
-                        </li>
+                        <li class="navbar-part-group"><a href="{% url 'homeMain' %}">Home</a></li>
+                        <li class="navbar-part-group"><a href="{% url 'register' %}">Register</a></li>
                         <li class="navbar-part-group"><a href="{% url 'signin' %}"> Sign In</a></li>
                         <li class="navbar-part-group"><a href="{% url 'contact' %}"> Contact</a></li>
+                        <li class="navbar-part-group"><a  href="{% url 'about' %} ">About</a></li>
                         <li class="navbar-part-group">
-                        <div class="dropdown">
-                            <a href="" class='dropbtn'>Search</a>
-                                      <div class="dropdown-content">
-                                          <form  action='/s/'> 
+                                          <form class="search" action='/s/'> 
                                                 {% comment %} /s/ for searching {% endcomment %}
-                                                    <input  type="search" placeholder="Search" aria-label="search"  name='search'>{% comment %} name is to display the searching variable  {% endcomment %}
-                                                <button type="submit">Search</button>
+                                                    <input  class='search-ip' type="search" placeholder="Search" aria-label="search"  name='search'>{% comment %} name is to display the searching variable  {% endcomment %}
+                                                <button class='search-btn' type="submit"><span class="material-icons">search</span></button>
                                             </form>
-                                      </div>
-                        </div>
-                    </li>
+                        </li>
+                      
+
                     {% else %}
                     <li class="navbar-part-group"><a href="{% url 'homeMain' %}">Home</a></li>
-                    <li class="navbar-part-group">
-                        <div class="dropdown">
-                            <a href="" class='dropbtn'>Search</a>
-                                      <div class="dropdown-content">
-                                          <form  action='/s/'> 
-                                                {% comment %} /s/ for searching {% endcomment %}
-                                                    <input  type="search" placeholder="Search" aria-label="search"  name='search'>{% comment %} name is to display the searching variable  {% endcomment %}
-                                                <button type="submit">Search</button>
-                                            </form>
-                                      </div>
-                        </div>
-                    </li>
-                    <li class="navbar-part-group"><a  href="{% url 'about' %} ">About</a></li>
                     <li class="navbar-part-group"><a href="{% url 'cart' %} ">Cart <span class="badge badge-primary">{% if not request.session.key  %}0{% else %}{{ request.session.key}}{% endif %}</span></a></li>
                     <li class="navbar-part-group"><a href="{% url 'add_address' %} ">Profile</a></li>
+                    <li class="navbar-part-group">
+                                          <form class="search" action='/s/'> 
+                                                {% comment %} /s/ for searching {% endcomment %}
+                                                    <input  class='search-ip' type="search" placeholder="Search" aria-label="search"  name='search'>{% comment %} name is to display the searching variable  {% endcomment %}
+                                                <button class='search-btn' type="submit"><span class="material-icons">search</span></button>
+                                            </form>
+                    </li>
                     {% comment %} <li class="navbar-part-group"><a href="{% url 'contact' %}"> Contact</a></li> {% endcomment %}
-                    <li class="navbar-part-group"><a  href="{% url 'logout' %}">Logout</li>
-                    <li class="navbar-part-group"><a href=""></a></li>
                     {% endif %}
                 </ul>
             </nav>

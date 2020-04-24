@@ -1,6 +1,6 @@
 {% extends 'html/nav.html' %} {% block content %}
-
-{% if user.is_authenticated %} 
+<body style="overflow-x:hidden">
+        {% if user.is_authenticated %} 
 
         <h3 class="text-center">Profile</h3>
 
@@ -142,6 +142,13 @@
                 </div>
         
         </div>
+        <div>
+                <a  href="{% url 'logout' %}"><h3 class="text-center">Logout</h3></a>
+        </div>
+         <div>
+                <a  href="{% url 'about' %} "><h3 class="text-center">About</h3></a>
+        </div>
+                                        
 
         
 {% else %}
@@ -168,6 +175,8 @@
         }
         }
 </script>
+</body>
+
 
 {% endblock content %}
 

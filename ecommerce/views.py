@@ -50,7 +50,6 @@ def category(request):
     
     return render(request, template, context)
 
-@login_required
 def about(request):
     # u = User.objects.get(username=request.user.username)
 

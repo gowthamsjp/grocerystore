@@ -5,7 +5,7 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Tangerine">
 </head> 
 
-<body>
+<body style="overflow: auto;  max-width: 100%; overflow-x: hidden;">
   <main>
     <div class="container-fluid">
       <div class="row">
@@ -19,7 +19,7 @@
                 <input name='password' class="form-control" placeholder='Password' type="password" >
               </div>
             
-              <button type="submit" class="btn btn-block login-btn">Signin</button>
+              <button type="submit" class="btn btn-block login-btn ">Signin</button>
               </form>
               <div class="login-wrapper-footer-text">
                 <span><a href="{% url 'register' %}" class="text-reset">Register</a></span>

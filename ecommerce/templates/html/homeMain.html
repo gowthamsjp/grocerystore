@@ -2,11 +2,12 @@
 {% extends "html/nav.html" %} {% load static %} {% block content %}
 {# It is for home page to show display of products. It contains images, description, title #}
 <img src="media/poster.png" alt="Poster" style='height: 100%; width: 100%; object-fit: contain'>
-<br> </br>
+<br> <br>
 <head>
 <link rel="stylesheet" href="{% static 'assests/homeMain.css' %}">
 
 </head>
+<body style=" overflow-x: hidden;">
 <div class="container">
     <div class="row ">
         <div class="col-lg-3">
@@ -56,5 +57,5 @@
         </div>
     </div>
 </div>
-
+</body>
 {% endblock content %}

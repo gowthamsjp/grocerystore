@@ -14,7 +14,7 @@ input#menu {
         right: -70px; 
         clear: both;
         display: inline;
-        position: relative;
+        position: relative; 
         z-index: 1;
         margin: 0 auto;
         padding: 0px;
@@ -81,9 +81,32 @@ input#menu {
       }
       
       /* Change the background color of the dropdown button when the dropdown content is shown */
+      .search{
 
+        float: right; 
+      }
+      .search-ip{
+        border: none;
+        box-shadow: 0 8px 6px -6px black; 
       
-} 
+      
+      }
+      .search-btn{
+        visibility: hidden;
+        cursor:pointer;
+      }
+      .search-ip:hover{
+        box-shadow: 0 8px 6px -6px grey;
+        cursor: pointer;
+      
+      }
+      .search-ip:focus{
+        outline: 0;
+      
+      }
+  }
+      
+
 @media only screen 
 and (max-width :975px) {
     *{
@@ -163,20 +186,29 @@ input:checked ~ .navbar-group {
 .dropdown:hover .dropdown-content {
   display: block;
 }
+.search{
+  border: none;
+  size: 30px;
+  text-align: center;
+  left: 50%;
+}
+.search-ip{
+  border: none;
+  border-radius: 20px; 
+  box-shadow: 5px 5px 6px -5px grey; 
+  text-align: center;
+
+}
+.search-btn{
+  visibility: hidden;
+  cursor:pointer;
 }
 
-
-
-/* {% comment %} search bar form {% endcomment %}
-<form  action='/s/'> 
-{% comment %} /s/ for searching {% endcomment %}
-      <input  type="search" placeholder="Search" aria-label="search"  name='search'>{% comment %} name is to display the searching variable  {% endcomment %}
-<button type="submit">Search</button>
-</form>
-{% comment %} category {% endcomment %}
-<form  action='/category/'> 
-    <button type='submit' name='category' value="Foods">Foods</button>
-    <button type='submit' name='category' value="Fruits">Fruits</button>
-    <button type='submit' name='category' value="Drinks">Drinks</button>
-    <button type='submit' name='category' value="Others">Others</button>
-</form>  */
+.search-ip:hover{
+  box-shadow: 0 8px 6px -6px grey;
+  cursor: pointer;
+}
+.search-ip:focus{
+  outline: 0;
+}
+}

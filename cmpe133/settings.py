@@ -29,8 +29,8 @@ INSTALLED_APPS = [
     'carts',
     'orders', 
     'accounts', 
-    'stripe', 
     'localflavor',
+    'sass_processor',
 ]
 # south: to check the new update
 MIDDLEWARE = [
@@ -139,6 +139,3 @@ STATICFILES_DIRS =[os.path.join(BASE_DIR,'static')]
 
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 SITE_ID = 1
-# It is for charging money of Stripe. Those keys is in developer mode
-STRIPE_SECRET_KEY = "sk_test_tt6l8bUgDKMQ5QFyvTO3JJl400BFwItDSS"
-STRIPE_PUBLISHABLE_KEY = "pk_test_fBmoDEXZrRpYvNu9EHBlVRHO0055ECS7Oi"
