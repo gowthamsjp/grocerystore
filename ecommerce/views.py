@@ -9,6 +9,7 @@ from django.contrib.auth import authenticate, login
 from django.contrib.auth import logout
 from django.contrib.auth.decorators import login_required
 from django.http import Http404
+from accounts.views import *
 
 # from .forms import ContactForm
 
@@ -27,7 +28,6 @@ def search(request):
 
     if search: 
         product = Product.objects.filter(title__icontains = search)
-        
         context = {'query': search, 'product': product}
         template = 'html/search.html'
     else: 
@@ -57,7 +57,6 @@ def about(request):
 
 #  sign in function
 def signin(request):
-    request.session.set_expiry(120000)
     if request.method == 'POST':
         username = request.POST['username']
         password = request.POST['password']
@@ -70,7 +69,6 @@ def signin(request):
             return redirect('signin')
     else:
         return render(request, 'html/signin.html', {'title': 'Sign in'})
-
 
 # Logout function
 # should set name function is different than logout unless the recusion problem happens.
@@ -122,22 +120,6 @@ def UniqueProduct(request,slug):
     except product.DoesNotExist:
         raise Http404("Does not exist")
 
-# def contact(request):
-#     template = "html/contact.html"
-
-#     if request.method == "POST":
-#         form = ContactForm(request.POST)
-
-#         if form.is_valid():
-#             form.save()
-#             messages.info(request, "Your feedback / questions has sent")
-#             return redirect('homeMain')
-    
-#     else:
-#         form = ContactForm()
-
-#     context = {'form':form,}
-#     return render(request, template, context)
 
 def contact(request): 
     request.session.set_expiry(120000)
@@ -158,7 +140,7 @@ def contact(request):
             contact = Contact.objects.create(firstName=firstName, lastName=lastName,email=email)
             contact.save()
         messages.info(request, "Your feedback / questions has sent")
-        return redirect('contact')
+        return redirect('add_address')
 
     template = 'accounts/newaddress.html'
     return render(request, template, context)

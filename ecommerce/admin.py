@@ -10,7 +10,7 @@ class ProductAdmin(admin.ModelAdmin):
     # create search function on database
     search_fields = ['title', 'description', 'salePrice', 'category']
     list_display = ['__str__', 'title', 'price','salePrice','category', 
-                    'active', 'updated']  # custom display of database
+                    'active', 'updated',]  # custom display of database
     # list_display = [ 'title', 'price', 'active', 'updated']
     list_editable = ['salePrice',
                      'active', 'category']  # edit the price and active status on database directly. You don't need to click on each

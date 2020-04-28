@@ -25,6 +25,7 @@ class Product(models.Model):
     updated = models.DateTimeField(auto_now_add=False, auto_now=True)
     active = models.BooleanField(default=True)
 
+
     def __str__(self):
         return self.title
 
@@ -37,6 +38,16 @@ class Product(models.Model):
     # to get the link of a unique product
     def get_absolute_url(self):
         return reverse("product", kwargs={"slug": self.slug})
+
+    def image(self, product): 
+        product = ProductImage.get.objects(product=product, featured = True)
+        self.image = product.image
+        self.image.save()
+
+
+
+    
+        
 
 class ProductImage(models.Model):
     product = models.ForeignKey(Product, on_delete=models.CASCADE,)

@@ -1,3 +1,9 @@
+@media only screen 
+and (min-width :975px) {
+    *{
+        padding: 0; 
+        margin: 0; 
+    }
 button {width: 250px;}
 
 .arrow-right{
@@ -7,6 +13,6 @@ button {width: 250px;}
     padding: 3px;
     transform: rotate(-45deg);
     -webkit-transform: rotate(-45deg);
-    float: right;
+}
 }
 

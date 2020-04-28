@@ -10,6 +10,7 @@ class CartItem(models.Model):
     productTotal = models.DecimalField(max_digits=1000, decimal_places=2, default=1.00)
     start_date  = models.DateTimeField(auto_now=False, auto_now_add=True) 
     ordered_date = models.DateTimeField(auto_now=True, auto_now_add=False) 
+    imageName =models.CharField( max_length=10000, null=True, blank= True)
     
     # def total_price_of_product(self):
     #     totalProduct = product.salePrice * self.quantity

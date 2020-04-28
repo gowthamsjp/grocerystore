@@ -15,13 +15,27 @@ from orders.models import *
 @login_required
 def cart(request):
         try: 
-                cart = Cart.objects.get(user = request.user, ordered=False)                
-                context = {'cart': cart, 'empty':False} 
+                cart = Cart.objects.get(user = request.user, ordered=False)  
+                cartItem = CartItem.objects.filter(cart=cart)
+
+                # To print the image on cart #######################################
+                productImage = []
+                for cartItem in cartItem:
+                        image = ProductImage.objects.get(product = cartItem.product, featured = True)
+                        productImage.append(image.image)
+                        cartItem.imageName = image.image
+                        cartItem.save()
+                        
+                
+                ###################################################################
+                
+                
+                context = {'cart': cart,'cartItem':cartItem, 'productImage':productImage, 'empty':False,} 
         except:
                 #if not, the status will be none
                 message_empty = "Your AirCart is empty, please fullfill it!!!"
                 context = {'empty':True, 'message_empty': message_empty}
-        
+       
         template = 'cart/cart.html'
         return render(request, template, context)
 

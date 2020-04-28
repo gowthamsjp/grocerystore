@@ -1,0 +1,178 @@
+*{
+    padding: 0; 
+    margin: 0; 
+}
+  /* Desktops and laptops ----------- */
+@media only screen 
+and (min-width :975px) {
+  .container{
+    position: relative;
+  }
+  .container table{
+    margin-top: 100px ;
+    margin-left:50px;
+    width:975px;
+  }
+  .table-head{
+    box-shadow: 3px 3px 3px 3px black;
+  }
+
+  .table-bd-content{
+    border: 1px solid grey; 
+    box-shadow: 2px 3px grey;
+  }
+  .checkout{
+    font-size: 20px;
+    color: black
+  }
+  .checkout:hover{
+      color:black;
+      text-decoration: none;
+  }
+  .button-checkout{
+    border: none;
+    background-color: transparent;
+    box-shadow: 0px 0px 10px 0px grey;
+    margin:30px 39%;      
+    font-size: 20px;
+    color: black;
+    border: 2px solid black;
+  }
+  .button-checkout:hover{
+    color:black;
+    text-decoration: none;
+  }
+  .button-checkout:hover, .button-checkout:focus{
+    box-shadow: 0 0.5em 0.5em -0.4em black;
+    transform: translateY(-0.25em);
+    }
+  
+  .material-icons-delete:hover, .material-icons-delete:focus{
+    box-shadow: 0 0.5em 0.5em -0.4em transparent;
+    transform: translateY(-0.25em);
+    }
+    #remove-btn a{
+      text-decoration: none;
+      font-size: 30px;
+      color: black
+    }
+    #remove-btn a:hover, .material-icons-delete:hover{
+      color:gray;
+  }
+  .material-icons-delete{
+    color: black;
+    
+  }
+
+  #button-submit{
+    border: none; 
+    background-color: white;
+
+  }
+  #button-submit:hover{
+    box-shadow: 0 0.5em 0.5em -0.4em transparent;
+    transform: translateY(-0.25em);
+    color: gray;
+  }
+  #remove-btn{
+    border: none;
+    background-color: transparent;
+    text-align: center; 
+    width: 55px;
+  }
+  .tfoot-table{
+    font-weight: bold;
+    margin:10px 38%;
+    font-size: 20px;
+  }
+
+
+}
+@media only screen 
+and (max-width :975px) and (min-width: 400px){
+  .container{
+    position: relative;
+  }
+  .container table{
+    text-align: center;
+    font-size: 10px;
+
+  }
+  .table-head{
+    box-shadow: 3px 3px 3px 3px black;
+    width:300px;
+  }
+  .table-bd-content{
+    border: 1px solid grey; 
+    box-shadow: 2px 3px grey;
+  }
+  
+    
+    .material-icons-delete:hover, .material-icons-delete:focus{
+    box-shadow: 0 0.5em 0.5em -0.4em transparent;
+    transform: translateY(-0.25em);
+    }
+
+    .checkout{
+      font-size: 20px;
+      color: black
+    }
+    .checkout:hover{
+        color:black;
+        text-decoration: none;
+    }
+    .button-checkout{
+      border: none;
+      background-color: transparent;
+      box-shadow: 0px 0px 10px 0px grey;
+      margin:30px 39%;      
+      font-size: 20px;
+      color: black;
+      border: 2px solid black;
+    }
+    .button-checkout:hover{
+      color:black;
+      text-decoration: none;
+    }
+    .button-checkout:hover, .button-checkout:focus{
+      box-shadow: 0 0.5em 0.5em -0.4em black;
+      transform: translateY(-0.25em);
+      }
+    
+
+
+    #remove-btn a{
+      text-decoration: none;
+      font-size: 30px;
+      color: black
+    }
+    #remove-btn a:hover, .material-icons-delete:hover{
+      color:gray;
+  }
+  .material-icons-delete{
+    color: black;
+    margin: 3px -5em; 
+  }
+  #button-submit{
+    border: none; 
+    background-color: white;
+  }
+  #button-submit:hover{
+    box-shadow: 0 0.5em 0.5em -0.4em transparent;
+    transform: translateY(-0.25em);
+    color: gray;
+  }
+  #remove-btn{
+    border: none;
+    background-color: transparent;
+    text-align: center; 
+    width: 40px;
+  }
+  
+  .tfoot-table{
+    font-weight: bold;
+    margin:10px 38%;
+    font-size: 20px;
+  }
+    
+}
