@@ -3,12 +3,7 @@ from ecommerce.models import Product, User
 from datetime import datetime
 from django.conf import settings
 from django.contrib.auth.signals import user_logged_in
-# from localflavor.us.models import USStateField
-
-
-# class UserAddressManager(models.Manager):
-#     def get_billing_address(self,user):
-#         return super(UserAddressManager, self).filter(billing=True).filter(user=user)   
+ 
 
 class UserAddress(models.Model):
     user = models.OneToOneField(settings.AUTH_USER_MODEL, on_delete=models.CASCADE,)
@@ -25,12 +20,3 @@ class UserAddress(models.Model):
     def get_address(self):
          return "%s, %s, %s, %s" %(self.address, self.city, self.state, self.zipcode)
 
-    # objects = UserAddressManager()
-
-# class UserDefaultAddress(models.Model):
-#     user = models.OneToOneField(settings.AUTH_USER_MODEL, on_delete= models.CASCADE, )
-#     shipping = models.OneToOneField(UserAddress, on_delete=models.CASCADE, 
-#                         blank =True, null=True, related_name="user_default_address")
-
-#     def __unicode__(self):
-#         return self.user.username

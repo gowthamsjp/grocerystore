@@ -29,7 +29,6 @@ INSTALLED_APPS = [
     'carts',
     'orders', 
     'accounts', 
-    # 'localflavor',
 ]
 # south: to check the new update
 MIDDLEWARE = [
@@ -74,8 +73,6 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-        'USER':'minhanh6998', 
-        'PASSWORD':'Lhma6998'
     }
 }
 
