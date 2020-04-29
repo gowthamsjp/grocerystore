@@ -29,7 +29,7 @@ INSTALLED_APPS = [
     'carts',
     'orders', 
     'accounts', 
-    'localflavor',
+    # 'localflavor',
 ]
 # south: to check the new update
 MIDDLEWARE = [
