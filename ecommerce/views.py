@@ -16,7 +16,7 @@ from accounts.views import *
 def homeMain(request):
     product = Product.objects.all()
     context = {'product': product,
-               'title': 'Home Page'}
+               'title': 'Home Page', }
     template = 'html/homeMain.html'
     return render(request, template, context)
 
