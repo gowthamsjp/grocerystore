@@ -30,7 +30,6 @@ INSTALLED_APPS = [
     'orders', 
     'accounts', 
     'localflavor',
-    'sass_processor',
 ]
 # south: to check the new update
 MIDDLEWARE = [
