@@ -33,7 +33,7 @@ def cart(request):
                 context = {'cart': cart,'cartItem':cartItem, 'productImage':productImage, 'empty':False,} 
         except:
                 #if not, the status will be none
-                message_empty = "Your AirCart is empty, please fullfill it!!!"
+                message_empty = "AirCart is empty"
                 context = {'empty':True, 'message_empty': message_empty}
        
         template = 'cart/cart.html'

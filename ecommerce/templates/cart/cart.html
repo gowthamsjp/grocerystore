@@ -8,11 +8,6 @@
 <div class="container">
     <div class="row">
     {% if empty == False %}
-        
-
-
-        
-
             {% comment %} If the cart has items {% endcomment %}
         <div class="column-1">
             <table class="table">
@@ -56,11 +51,11 @@
         <h1 class="tfoot-table">Total : {{ cart.total }}</h1>
         <button class="button-checkout"><a  class="checkout" href="{% url "checkout" %}"><span class="material-icons" >shopping_cart</span>Payment</a></button>
         </div>
-        
-
     {% else %} 
     {% comment %}  If the cart is none item {% endcomment %}
-    <h1 class="text-center">{{ message_empty }}</h1>
+    <div id="message-empty"><h1 class="text-center" style="margin: 30px 500px">{{ message_empty }}</h1></div>
+    <div class="navbar-part-group "><a href="{% url 'homeMain' %}" class="badge">Shopping?<span class="material-icons">home</span></a></div>
+
     {% endif %} 
 </div>
 </body>

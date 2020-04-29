@@ -53,7 +53,7 @@ def checkout(request):
         context={'address1' : True, 'address':addressDefault, "order": order,'cart':cart , 'one_day':one_day,'three_days':three_days, 'seven_days':seven_days}
     except:
         addressDefault= None
-        message = "There is no Address in Your Account"
+        message = " No Address In Your Account"
         context = { "address1": False, "message": message, "order": order,'cart':cart}
            
     if request.method == 'POST':
@@ -71,10 +71,12 @@ def checkout(request):
                 addressDefault.phone_number = phone_number
                 addressDefault.save()
                 messages.success(request, 'Saved successfully')
+                redirect(checkout)
         elif addressDefault == None:
                 new_address = UserAddress.objects.create(user=request.user, address=address, city = city, state=state, zipcode=zipcode, phone_number=phone_number)
                 new_address.save()
-        HttpResponseRedirect(reverse(checkout))
+                redirect(checkout)
+
     template = 'checkout/checkout.html'
     return render(request,template,context)
 
