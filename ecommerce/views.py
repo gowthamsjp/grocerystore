@@ -15,6 +15,12 @@ from accounts.views import *
 
 def homeMain(request):
     product = Product.objects.all()
+    try:
+        cart = Cart.objects.get(user=request.user, ordered=False)
+        totalCount = cart.cartitem_set.count()
+        request.session['key'] = totalCount
+    except:
+        pass
     context = {'product': product,
                'title': 'Home Page', }
     template = 'html/homeMain.html'

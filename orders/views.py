@@ -71,11 +71,11 @@ def checkout(request):
                 addressDefault.phone_number = phone_number
                 addressDefault.save()
                 messages.success(request, 'Saved successfully')
-                redirect(checkout)
+                return HttpResponseRedirect(reverse('checkout'))
         elif addressDefault == None:
                 new_address = UserAddress.objects.create(user=request.user, address=address, city = city, state=state, zipcode=zipcode, phone_number=phone_number)
                 new_address.save()
-                redirect(checkout)
+                return HttpResponseRedirect(reverse('checkout'))
 
     template = 'checkout/checkout.html'
     return render(request,template,context)
@@ -94,7 +94,7 @@ def time_shipping(request):
     today = date.today()
     one_day = today + timedelta(days=1)
     three_days = today+timedelta(days=4)
-    seven_days =  today + timedelta(days=7)
+    seven_days = today + timedelta(days=7)
 
 
     try: 

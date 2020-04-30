@@ -53,8 +53,11 @@
         </div>
     {% else %} 
     {% comment %}  If the cart is none item {% endcomment %}
-    <div id="message-empty"><h1 class="text-center" style="margin: 30px 500px">{{ message_empty }}</h1></div>
-    <div class="navbar-part-group "><a href="{% url 'homeMain' %}" class="badge">Shopping?<span class="material-icons">home</span></a></div>
+    <div class="empty">
+        <span id="message-empty"><h1 class="text-center">{{ message_empty }}</h1></span>
+        <span class="navbar-part-group badge "><a href="{% url 'homeMain' %}" >Shopping?<span class="material-icons">home</span></a></span>
+    </div>
+
 
     {% endif %} 
 </div>
