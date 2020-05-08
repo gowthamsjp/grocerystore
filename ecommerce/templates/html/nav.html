@@ -44,29 +44,29 @@
                   {% if not user.is_authenticated %} 
                         <li class="navbar-part-group nav-link"><a href="{% url 'homeMain' %}" class="badge">Home<span class="material-icons">home</span></a></li>
                         <li class="navbar-part-group nav-link"><a href="{% url 'register' %}" class="badge">Register<span class="material-icons">how_to_reg</span></a></li>
-                        <li class="navbar-part-group nav-link"><a href="{% url 'signin' %}" class="badge">Login<span class="material-icons">lock_open</span></a></li>
+                        <li class="navbar-part-group nav-link"><a href="{% url 'signin' %}" class="badge">Log in<span class="material-icons">lock_open</span></a></li>
                         <li class="navbar-part-group nav-link"><a href="{% url 'contact' %}" class="badge"> Contact<span class="material-icons">contact_support</span></a></li>
                         <li class="navbar-part-group nav-link"><a  href="{% url 'about' %} " class="badge">About<span class="material-icons">description</span></a></li>
                         <li class="navbar-part-group nav-link">
                                           <form class="search" action='/s/'> 
                                                 {% comment %} /s/ for searching {% endcomment %}
                                                     <input  class='search-ip text-center' type="search" placeholder="Search" aria-label="search"  name='search'>{% comment %} name is to display the searching variable  {% endcomment %}
-                                                <button class='search-btn' type="submit"><span class="material-icons ">search</span></button>
+                                                <button class='search-btn' type="submit"><span class="material-icons search-icon">search</span></button>
                                             </form>
 
                         {% else %}
-                        <li class="navbar-part-group nav-link"><a href="{% url 'homeMain' %}" class="badge"><span class="material-icons">home</span>Home</a></li>
-                        <li class="navbar-part-group nav-link">
+                        <li class="navbar-part-group1 nav-link"><a href="{% url 'homeMain' %}" class="badge"><span class="material-icons">home</span>Home</a></li>
+                       
+                        <li class="navbar-part-group1 nav-link"><a href="{% url 'cart' %}" class="badge" ><span class="material-icons">shopping_cart</span>  Cart {% if not request.session.key  %}0{% else %}{{ request.session.key}}{% endif %}</a></li>
+                        <li class="navbar-part-group1 nav-link"><a href="{% url 'add_address' %}" class="badge"><span class="material-icons">face</span>Profile</a></li>
+                         <li class="navbar-part-group1 nav-link">
                                               <form class="search" action='/s/'> 
                                                     {% comment %} /s/ for searching {% endcomment %}
                                                         <input  class='search-ip text-center' type="search" placeholder="Search" aria-label="search"  name='search'>{% comment %} name is to display the searching variable  {% endcomment %}
-                                                    <button class='search-btn' type="submit"><span class="material-icons">search</span></button>
+                                                    <button class='search-btn' type="submit"><span class="material-icons search-icon">search</span></button>
                                                 </form>
                         </li>
-                        <li class="navbar-part-group nav-link"><a href="{% url 'cart' %}" class="badge" ><span class="material-icons">shopping_cart</span>  Cart {% if not request.session.key  %}0{% else %}{{ request.session.key}}{% endif %}</a></li>
-                        <li class="navbar-part-group nav-link"><a href="{% url 'add_address' %}" class="badge"><span class="material-icons">face</span>Profile</a></li>
-                        
-                        {% comment %} <li class="navbar-part-group"><a href="{% url 'contact' %}"> Contact</a></li> {% endcomment %}
+                        {% comment %} <li class="navbar-part-group1"><a href="{% url 'contact' %}"> Contact</a></li> {% endcomment %}
                     {% endif %}
                   
               </ul>
@@ -81,7 +81,7 @@
     <div class="alert alert-{{ message.tags }}">{{message}}</div>
 
     {% endfor %} {% endif %} 
-    {% comment %} <div class="container">{% block jumbotron %}{% endblock %}</div> {% endcomment %}
+    {% comment %} <div class="container">{% block jumbotron %}{% settendblock %}</div> {% endcomment %}
 
     {# For the contents of other pages #}
     <div class="container">{% block content %} {% endblock content %}</div>
