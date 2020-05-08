@@ -72,7 +72,26 @@
     border-bottom: 2px solid black;
     text-decoration: none;
   }
+  .navbar-toggler-icon {
+    box-shadow: black 3px 3px;
+  }
+  .navbar-toggler-icon:focus {
+    outline: none;
+  }
+  .navbar-toggler {
+    border: none;
+    box-shadow: black;
+    width: 30px;
+    height: 30px;
+  }
+  .navbar-toggler:focus {
+    outline: none;
+  }
+  .navbar-toggler:hover {
+    box-shadow: 3px 3px black;
+  }
 }
+
 @media screen and (max-width: 1146px) {
   * {
     box-sizing: border-box;
@@ -147,5 +166,23 @@
   a:focus {
     border-bottom: 2px solid black;
     text-decoration: none;
+  }
+  .navbar-toggler-icon {
+    box-shadow: black 3px 3px;
+  }
+  .navbar-toggler-icon:focus {
+    outline: none;
+  }
+  .navbar-toggler {
+    border: none;
+    box-shadow: black;
+    width: 30px;
+    height: 30px;
+  }
+  .navbar-toggler:focus {
+    outline: none;
+  }
+  .navbar-toggler:hover {
+    box-shadow: 3px 3px black;
   }
 }
