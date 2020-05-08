@@ -86,7 +86,6 @@ def logout_views(request):
 
 # register function
 def register(request):
-    request.session.set_expiry(120000)
     if request.method == 'POST':
         username = request.POST['username']
         first_name = request.POST['first_name']
