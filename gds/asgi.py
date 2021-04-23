@@ -1,5 +1,5 @@
 """
-ASGI config for cmpe133 project.
+ASGI config for gds project.
 
 It exposes the ASGI callable as a module-level variable named ``application``.
 
@@ -11,6 +11,6 @@ import os
 
 from django.core.asgi import get_asgi_application
 
-os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'cmpe133.settings')
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'gds.settings')
 
 application = get_asgi_application()

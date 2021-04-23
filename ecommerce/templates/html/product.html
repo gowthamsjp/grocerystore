@@ -113,63 +113,14 @@
                 {% for img in images %}
                 {% if  not img.featured %}
                 <div class="card-body">
-                  <a href="#" class="thumbnail"><img src="media/{{ MEDIA_URL }}{{ img.image }}" class="card-img-top" />
-                  </a>
+                    <p>{{product.description}}</p>
                 </div>
                 {% endif %}
                 {% endfor %}
               </div>
             </div>
-            <!--card2-->
-            <div class='card'>
-              <!-- Card header -->
-              <div class="card-header" role="tab" id="headingTwo2">
-                <a class="collapsed" data-toggle="collapse" data-parent="#accordionEx" href="#collapseTwo2"
-                  aria-expanded="false" aria-controls="collapseTwo2">
-                  <h5 class="mb-0">
-                    Details
-                    <i class="fas fa-angle-down rotate-icon"></i>
-                  </h5>
-                </a>
-              </div>
 
-              <!-- Card body -->
-              <div id="collapseTwo2" class="collapse" role="tabpanel" aria-labelledby="headingTwo2"
-                data-parent="#accordionEx">
-                <div class="card-body">
-                  Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid.
-                  3 wolf moon officia aute,
-                  non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf
-                  moon
-                  tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et.
-                </div>
-              </div>
-            </div>
-            <!--card3-->
-            <div class='card'>
-              <!-- Card header -->
-              <div class="card-header" role="tab" id="headingThree3">
-                <a class="collapsed" data-toggle="collapse" data-parent="#accordionEx" href="#collapseThree3"
-                  aria-expanded="false" aria-controls="collapseThree3">
-                  <h5 class="mb-0">
-                    More
-                    <i class="fas fa-angle-down rotate-icon"></i>
-                  </h5>
-                </a>
-              </div>
 
-              <!-- Card body -->
-              <div id="collapseThree3" class="collapse" role="tabpanel" aria-labelledby="headingThree3"
-                data-parent="#accordionEx">
-                <div class="card-body">
-                  Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid.
-                  3 wolf moon officia aute,
-                  non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf
-                  moon
-                  tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et.
-                </div>
-              </div>
-            </div>
             
           </div>
           <!-- end accordion-->
@@ -183,44 +134,3 @@
 </div>
 </body>
 {% endblock content %}
-
-
-
-
-
-<!--{# It is to custom an individual product  #}
-<head>
-    <link rel="stylesheet" href="{% static 'assests/signin.css' %}">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Tangerine">
-</head> 
-<body>
-{% if not user.is_authenticated %} 
-    <a href='{% url "signin" %}'>Sign In to Add</a>
-    <h1>{{ product.title }}</h1>
-    {% for img in images %}
-        {% if img.featured %}
-        <div class="col-xs-12 col-md-6">
-            <img src='media/{{ MEDIA_URL }}{{ img.image }}' class="rounded mx-auto d-block" >
-        </div>     
-        {% elif  not img.featured %}
-        <div class="col-xs-6 col-md-3">
-        <a href="#" class="thumbnail"><img src="media/{{ MEDIA_URL }}{{ img.image }}" class="card-img-top" />
-    </a> </div>
-        {% endif %}
-    {% endfor %}
-{% else%}
-    <a href='{% url "update_cart" product.slug %}?qty=1'>Add To Cart</a>
-    <h1>{{ product.title }}</h1>
-    {% for img in images %}
-        {% if img.featured %}
-        <div class="col-xs-12 col-md-6">
-            <img src='media/{{ MEDIA_URL }}{{ img.image }}' class="rounded mx-auto d-block" >
-        </div>     
-        {% elif  not img.featured %}
-        <div class="col-xs-6 col-md-3">
-        <a href="#" class="thumbnail"><img src="media/{{ MEDIA_URL }}{{ img.image }}" class="card-img-top" />
-    </a> </div>
-        {% endif %}
-    {% endfor %}
-{% endif %}
-</body>-->

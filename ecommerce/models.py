@@ -16,6 +16,7 @@ STATUS_CHOICES = (
 class Product(models.Model):
     id = models.IntegerField
     title = models.CharField(max_length=120, null=False, blank=False)
+    tagLine = models.CharField(max_length=1000,null=False, blank=False)
     description = models.TextField(null=False, blank=False)
     price = models.DecimalField(decimal_places=2, max_digits=100, default=0.0)
     salePrice = models.DecimalField( decimal_places=2, max_digits=100, default=0.0)

@@ -46,7 +46,7 @@ deactivate () {
 # unset irrelevant variables
 deactivate nondestructive
 
-VIRTUAL_ENV='/home/otpsensei/Desktop/cmpe133/cmpe133'
+VIRTUAL_ENV='/home/otpsensei/Desktop/gds/gds'
 export VIRTUAL_ENV
 
 _OLD_VIRTUAL_PATH="$PATH"

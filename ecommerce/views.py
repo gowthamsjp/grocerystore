@@ -1,14 +1,4 @@
-from django.shortcuts import render, redirect
-# from django.http import HttpResponse
-from django.contrib.auth.forms import UserCreationForm
-from django.contrib import messages
-from django.contrib.auth.models import User
-# from .forms import UserRegisterForm
-from .models import User, Product, ProductImage, Contact
-from django.contrib.auth import authenticate, login
-from django.contrib.auth import logout
-from django.contrib.auth.decorators import login_required
-from django.http import Http404
+
 from accounts.views import *
 
 # from .forms import ContactForm
@@ -115,7 +105,7 @@ def register(request):
 def UniqueProduct(request,slug):
     try:
         product = Product.objects.get(slug=slug)
-        # print(products.title)
+        print(product.description);
         # images = ProductImage.productimage_set.all()
         images = ProductImage.objects.filter(product=product)
         context = {'product': product,'images': images, 

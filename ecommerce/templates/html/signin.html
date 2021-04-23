@@ -1,77 +1,62 @@
-{% extends "html/nav.html" %} {% load static %} {% block content %}
+{% load static %} {% block content %}
 
-<head>
-  <link rel="stylesheet" href="{% static 'assests/signin.css' %}" />
-  <link
-    rel="stylesheet"
-    href="https://fonts.googleapis.com/css?family=Tangerine"
-  />
-</head>
+    <head>
+        <link rel="stylesheet" href="{% static 'assests/signin.css' %}"/>
+        <link
+                rel="stylesheet"
+                href="https://fonts.googleapis.com/css?family=Tangerine"
+        />
+        <link rel="stylesheet"
+              href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link href="//fonts.googleapis.com/css?family=Mukta:300,400,500" rel="stylesheet">
 
-<body style="overflow: auto; max-width: 100%;">
-  <main>
-    <div class="container-fluid">
-      <div class="row">
-        <div class="col-sm-6 login-section-wrapper">
-          <div class="login-wrapper my-auto">
-            <h1 class="login-title">Sign In</h1>
-            <form method="post" action="signin">
-              {% csrf_token %}
-              <div class="form-group">
-                <input
-                  name="username"
-                  class="form-control"
-                  placeholder="Username"
-                  class="signinForm"
-                  type="text"
-                />
-                <input
-                  name="password"
-                  class="form-control"
-                  placeholder="Password"
-                  type="password"
-                />
-              </div>
-              <button type="submit" class="btn btn-block login-btn">
-                Log In
-              </button>
-            </form>
-            <div class="login-wrapper-footer-text">
-              <span
-                ><a href="{% url 'register' %}" class="text-reset"
-                  >Register</a
-                ></span
-              >
+    </head>
+
+    <body style="overflow: auto; max-width: 100%;">
+    <main>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-sm-6" style="background: transparent">
+                    <div class="content-bottom">
+                        <h1 class="login-title" style="color: aliceblue;text-align: center">JazzKart</h1>
+                        <form method="post" action="signin">
+                            {% csrf_token %}
+                            <div class="field-group">
+                                <span class="fa fa-user" aria-hidden="true"></span>
+                                <div class="wthree-field">
+                                    <input
+                                            name="username"
+                                            placeholder="Username"
+                                            type="text"
+                                    />
+                                </div>
+                            </div>
+                            <div class="field-group">
+                                <span class="fa fa-lock" aria-hidden="true"></span>
+                                <div class="wthree-field">
+                                    <input
+                                            name="password"
+                                            placeholder="Password"
+                                            type="password"
+                                    />
+                                </div>
+                            </div>
+                            <div class="wthree-field">
+                                <button type="submit" class="btn">Sign in</button>
+                            </div>
+                        </form>
+                        <div class="wthree-field">
+                            <button type="submit" class="btn" style="background: blue"><a href="{% url 'register' %}"
+                                                                                          class=""
+                                                                                          style="color: aliceblue">Register</a>
+                            </button>
+                        </div>
+
+                    </div>
+                </div>
             </div>
-          </div>
         </div>
-        <div class="col-sm-6 px-0 d-none d-sm-block">
-          <img src="media/halfimage.jpg" alt="login image" class="login-img" />
-        </div>
-      </div>
-    </div>
-  </main>
-</body>
-
-<!-- <body>
-  <div id="Sign_in">
-    <span>Sign in</span>
-  </div>
-  <form  method='post' action='signin'>
+    </main>
+    </body>
     {% csrf_token %}
-  
-  
-    <div id="Username__">
-      <input name='username' placeholder='Username' class='signinForm' type="text" >
-    </div>
-    <div id="Passwords__" >
-      <input name='password' class='signinForm' placeholder='Password' type="password" >
-    </div>
-    <button type="submit">Signin</button>
-  </form>
-  <!-- <div id='__Register__'> 
-  <div>
-    <span><a href="{% url 'register' %}">Register</a></span>
-  </div>
-</body> -->
 {% endblock content %}

@@ -1,4 +1,4 @@
-#!/home/otpsensei/Desktop/cmpe133/cmpe133/bin/python
+#!/home/otpsensei/Desktop/gds/gds/bin/python
 from django.core import management
 
 if __name__ == "__main__":

@@ -29,7 +29,8 @@ INSTALLED_APPS = [
     'django.contrib.sites',
     'carts',
     'orders', 
-    'accounts', 
+    'accounts',
+    'django_rename_app',
 ]
 # south: to check the new update
 MIDDLEWARE = [
@@ -42,7 +43,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     ]
 
-ROOT_URLCONF = 'cmpe133.urls'
+ROOT_URLCONF = 'gds.urls'
 
 TEMPLATES = [
     {
@@ -60,7 +61,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'cmpe133.wsgi.application'
+WSGI_APPLICATION = 'gds.wsgi.application'
 
 AUTHENTICATION_BACKENDS = (
 
