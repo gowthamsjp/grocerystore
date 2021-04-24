@@ -1,6 +1,7 @@
 from django.shortcuts import render, HttpResponseRedirect
 from .models import *
 from ecommerce.models import Product
+from ecommerce.models import ProductImage
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, redirect
 from django.contrib import messages
@@ -17,6 +18,7 @@ from orders.models import *
 @login_required
 def cart(request):
     try:
+
         cart = Cart.objects.get(user=request.user, ordered=False)
         cartItem = CartItem.objects.filter(cart=cart)
 
@@ -31,7 +33,8 @@ def cart(request):
         ###################################################################
 
         context = {'cart': cart, 'cartItem': cartItem, 'productImage': productImage, 'empty': False, }
-    except:
+    except Exception as e:
+        print(e)
         # if not, the status will be none
         message_empty = "AirCart is empty"
         context = {'empty': True, 'message_empty': message_empty}

@@ -9,8 +9,16 @@ from django.conf import settings
 STATUS_CHOICES = (
     ("Fruits", "Fruits"),
     ("Foods", "Foods"), 
-    ("Drinks","Drinks" ),
-    ("Others", "Others"), 
+    ("Bevarages","Beverages" ),
+    ("Others", "Others"),
+    ("Veggies","Veggies"),
+    ("Indian", "Indian"),
+    ("Cookies", "Cookies"),
+    ("International", "International"),
+    ("Eggs","Eggs"),
+    ("Dairy", "Dairy"),
+    ("Personal Care", "Personal Care"),
+    ("Detergents","Detergents")
 )
 
 class Product(models.Model):
@@ -25,6 +33,7 @@ class Product(models.Model):
     timestamp = models.DateTimeField(auto_now_add=True, auto_now=False)
     updated = models.DateTimeField(auto_now_add=False, auto_now=True)
     active = models.BooleanField(default=True)
+    stock = models.IntegerField(null=False, blank=True, default=10)
 
 
     def __str__(self):

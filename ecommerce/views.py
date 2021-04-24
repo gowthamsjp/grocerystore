@@ -1,10 +1,19 @@
+from django.contrib.auth import logout, authenticate, login
 
 from accounts.views import *
 
 # from .forms import ContactForm
+from ecommerce.models import Contact,User,Product,ProductImage
+from carts.models import Cart
+from django.core.paginator import Paginator
+
 
 def homeMain(request):
-    product = Product.objects.all()
+    product_list = Product.objects.all()
+    paginator = Paginator(product_list, 12)
+
+    page_number = request.GET.get('page')
+    product = paginator.get_page(page_number)
     try:
         cart = Cart.objects.get(user=request.user, ordered=False)
         totalCount = cart.cartitem_set.count()

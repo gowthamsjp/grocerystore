@@ -31,6 +31,7 @@ INSTALLED_APPS = [
     'orders', 
     'accounts',
     'django_rename_app',
+    'rest_framework',
 ]
 # south: to check the new update
 MIDDLEWARE = [

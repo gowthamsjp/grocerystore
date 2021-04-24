@@ -3,103 +3,144 @@
 <html>
 <head>
 
-{# Please do not delete all contents in head #}
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    {# Please do not delete all contents in head #}
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <link
-      rel="stylesheet"
-      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
-      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
-      crossorigin="anonymous"
+            rel="stylesheet"
+            href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+            integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+            crossorigin="anonymous"
     />
     <link
-      rel="stylesheet"
-      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
-      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
-      crossorigin="anonymous"
+            rel="stylesheet"
+            href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+            integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+            crossorigin="anonymous"
     />
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     {#   Title #}
-    <title>JazzCart</title>
-    
-    <link rel="stylesheet" href="{% static 'assests/nav.css' %}" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>Organika Grocers</title>
+
+    <link rel="stylesheet" href="{% static 'assests/nav.css' %}"/>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Tangerine">
-  </head>
-  <body>
-  
-
-        <nav class="navbar navbar-expand-lg  navbar-light">
-            <a class="navbar-brand" href="{% url 'homeMain' %}">
-                JAZZKART
-            </a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-              <span class="navbar-toggler-icon" style="border:none "></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-              <ul class="navbar-nav">
-                
-                  {% if not user.is_authenticated %} 
-                        <li class="navbar-part-group nav-link"><a href="{% url 'homeMain' %}" class="badge">Home<span class="material-icons">home</span></a></li>
-                        <li class="navbar-part-group nav-link"><a href="{% url 'register' %}" class="badge">Register<span class="material-icons">how_to_reg</span></a></li>
-                        <li class="navbar-part-group nav-link"><a href="{% url 'signin' %}" class="badge">Log in<span class="material-icons">lock_open</span></a></li>
-                        <li class="navbar-part-group nav-link"><a href="{% url 'contact' %}" class="badge"> Contact<span class="material-icons">contact_support</span></a></li>
-                        <li class="navbar-part-group nav-link"><a  href="{% url 'about' %} " class="badge">About<span class="material-icons">description</span></a></li>
-                        <li class="navbar-part-group nav-link">
-                                          <form class="search" action='/s/'> 
-                                                {% comment %} /s/ for searching {% endcomment %}
-                                                    <input  class='search-ip text-center' type="search" placeholder="Search" aria-label="search"  name='search'>{% comment %} name is to display the searching variable  {% endcomment %}
-                                                <button class='search-btn' type="submit"><span class="material-icons search-icon">search</span></button>
-                                            </form>
-
-                        {% else %}
-                        <li class="navbar-part-group1 nav-link"><a href="{% url 'homeMain' %}" class="badge"><span class="material-icons">home</span>Home</a></li>
-                       
-                        <li class="navbar-part-group1 nav-link"><a href="{% url 'cart' %}" class="badge" ><span class="material-icons">shopping_cart</span>  Cart {% if not request.session.key  %}[0]{% else %}[{{ request.session.key}}]{% endif %}</a></li>
-                        <li class="navbar-part-group1 nav-link"><a href="{% url 'add_address' %}" class="badge"><span class="material-icons">face</span>Profile</a></li>
-                         <li class="navbar-part-group1 nav-link">
-                                              <form class="search" action='/s/'> 
-                                                    {% comment %} /s/ for searching {% endcomment %}
-                                                        <input  class='search-ip text-center' type="search" placeholder="Search" aria-label="search"  name='search'>{% comment %} name is to display the searching variable  {% endcomment %}
-                                                    <button class='search-btn' type="submit"><span class="material-icons search-icon">search</span></button>
-                                                </form>
-                        </li>
-                        {% comment %} <li class="navbar-part-group1"><a href="{% url 'contact' %}"> Contact</a></li> {% endcomment %}
-                    {% endif %}
-                  
-              </ul>
-            </div>
-        </nav>
-                    
-    {#    Status of after actions. E.g: register: register sucessfully #} 
+</head>
+<body>
 
 
+{#        <nav class="navbar navbar-expand-lg  navbar-light">#}
+{#            <a class="navbar-brand" href="{% url 'homeMain' %}">#}
+{#                <img  id="brand" src="{% static 'images/logo1.png' %}"/>#}
+{#            </a>#}
+{#            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">#}
+{#              <span class="navbar-toggler-icon" style="border:none "></span>#}
+{#            </button>#}
+{#            <div class="collapse navbar-collapse" id="navbarNav">#}
+{#              <ul class="navbar-nav">#}
+{##}
+{#                  {% if not user.is_authenticated %}#}
+{#                        <li class="navbar-part-group nav-link"><a href="{% url 'homeMain' %}" class="badge">Home<span class="material-icons">home</span></a></li>#}
+{#                        <li class="navbar-part-group nav-link"><a href="{% url 'register' %}" class="badge">Register<span class="material-icons">how_to_reg</span></a></li>#}
+{#                        <li class="navbar-part-group nav-link"><a href="{% url 'signin' %}" class="badge">Log in<span class="material-icons">lock_open</span></a></li>#}
+{#                        <li class="navbar-part-group nav-link"><a href="{% url 'contact' %}" class="badge"> Contact<span class="material-icons">contact_support</span></a></li>#}
+{#                        <li class="navbar-part-group nav-link"><a  href="{% url 'about' %} " class="badge">About<span class="material-icons">description</span></a></li>#}
+{#                        <li class="navbar-part-group nav-link">#}
+{#                                          <form class="search" action='/s/'>#}
+{#                                                {% comment %} /s/ for searching {% endcomment %}#}
+{#                                                    <input  class='search-ip text-center' type="search" placeholder="Search" aria-label="search"  name='search'>{% comment %} name is to display the searching variable  {% endcomment %}#}
+{#                                                <button class='search-btn' type="submit"><span class="material-icons search-icon">search</span></button>#}
+{#                                            </form>#}
+{##}
+{#                        {% else %}#}
+{#                        <li class="navbar-part-group1 nav-link"><a href="{% url 'homeMain' %}" class="badge"><span class="material-icons">home</span>Home</a></li>#}
+{##}
+{#                        <li class="navbar-part-group1 nav-link"><a href="{% url 'cart' %}" class="badge" ><span class="material-icons">shopping_cart</span>  Cart {% if not request.session.key  %}[0]{% else %}[{{ request.session.key}}]{% endif %}</a></li>#}
+{#                        <li class="navbar-part-group1 nav-link"><a href="{% url 'add_address' %}" class="badge"><span class="material-icons">face</span>Profile</a></li>#}
+{#                         <li class="navbar-part-group1 nav-link">#}
+{#                                              <form class="search" action='/s/'>#}
+{#                                                    {% comment %} /s/ for searching {% endcomment %}#}
+{#                                                        <input  class='search-ip text-center' type="search" placeholder="Search" aria-label="search"  name='search'>{% comment %} name is to display the searching variable  {% endcomment %}#}
+{#                                                    <button class='search-btn' type="submit"><span class="material-icons search-icon">search</span></button>#}
+{#                                                </form>#}
+{#                        </li>#}
+{#                        {% comment %} <li class="navbar-part-group1"><a href="{% url 'contact' %}"> Contact</a></li> {% endcomment %}#}
+{#                    {% endif %}#}
+{##}
+{#              </ul>#}
+{#            </div>#}
+{#        </nav>#}
 
-    {% if messages %} {% for message in messages %}
-    <div class="alert alert-{{ message.tags }}">{{message}}</div>
+{#    Status of after actions. E.g: register: register sucessfully #}
 
-    {% endfor %} {% endif %} 
-    {% comment %} <div class="container">{% block jumbotron %}{% settendblock %}</div> {% endcomment %}
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark py-3">
+    <a class="navbar-brand" href="#"><img id="brand" src="{% static 'images/logo1.png' %}" width="30" height="30"
+                                          class="d-inline-block align-top mr-2" alt=""/>
+        Organika Grocers</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
 
-    {# For the contents of other pages #}
-    <div class="container">{% block content %} {% endblock content %}</div>
-    
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item active" style="margin-left: 340px">
+                <a class="nav-link" href="{% url 'homeMain' %}"><i class="fa fa-home mr-1"></i>Home <span
+                        class="sr-only">(current)</span></a>
+            </li>
+            {% if not user.is_authenticated %}
+                <li class="nav-item ml-4">
+                    <a class="nav-link" href="{% url 'register' %}"><i class="fa fa-shopping-cart mr-1"></i>Register</a>
+                </li>
+                <li class="nav-item ml-4">
+                    <a class="nav-link" href="{% url 'signin' %}"><i class="fa fa-user mr-1"></i>Sign in</a>
+                </li>
+            {% else %}
+                <li class="nav-item ml-4">
+                    <a class="nav-link" href="{% url 'cart' %}"><i class="fa fa-shopping-cart mr-1"></i>Cart</a>
+                </li>
+                <li class="nav-item ml-4">
+                    <a class="nav-link" href="{% url 'add_address' %}"><i class="fa fa-user mr-1"></i>Profile</a>
+                </li>
+            {% endif %}
+            <li class="nav-item ml-4">
+                <a class="nav-link" href="{% url 'about' %}"><i class="fa fa-user mr-1"></i>About</a>
+            </li>
+        </ul>
+        <form class="form-inline my-2 my-lg-0" action='/s/'>
+            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" name='search'>
+            <button class="btn btn-outline-success my-1 my-sm-0" style="width: auto" type="submit">Search</button>
+        </form>
+    </div>
+</nav>
+
+<br>
+{% if messages %} {% for message in messages %}
+    <div class="alert alert-{{ message.tags }}">{{ message }}</div>
+
+{% endfor %} {% endif %}
+{% comment %} <div class="container">{% block jumbotron %}{% settendblock %}</div> {% endcomment %}
+
+{# For the contents of other pages #}
+<div class="container">{% block content %} {% endblock content %}</div>
+
 
 {# Please Do not delete #}
-    <script
-      src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
-      integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
-      crossorigin="anonymous"
-    ></script>
-    <script
-      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
-      integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
-      crossorigin="anonymous"
-    ></script>
-    <script
-      src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
-      integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
-      crossorigin="anonymous"
-    ></script>
-  </body>
+<script
+        src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"
+></script>
+<script
+        src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"
+></script>
+<script
+        src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"
+></script>
+</body>
 </html>
